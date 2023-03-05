@@ -1,0 +1,35 @@
+.intro {
+    height: calc(100vh - 2.8rem);;
+    width: 100%;
+    background-color: var(--c-background);
+}
+
+.intro-container {
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.intro-container__question {
+    font-size: 72px;
+    color: var(--c-main);
+    text-align: center;
+}
+
+.intro-container__button {
+    font-size: 50px;
+    font-weight: 800;
+    color: var(--c-secondary);
+    margin: auto;
+    padding: 14px 28px;
+    background: none;
+    border: 5px solid;
+    border-color: var(--c-main);
+    cursor: pointer;
+}
+.intro-container__button:hover {
+    transition: 0.5s;
+    padding: 25px;
+
+}
