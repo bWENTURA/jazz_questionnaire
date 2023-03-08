@@ -1,30 +1,61 @@
 .intro {
-    height: calc(100vh - 2.8rem);;
+    position: relative;
+    height: calc(100vh - 2.8rem);
     width: 100%;
     background-color: var(--c-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.corner-github {
+    top: -75px;
+    left: -75px;
+    width: 150px;
+    height: 150px;
+    transform: rotate(45deg);
+    position: absolute;
+    display: flex;
+    align-items:center;
+    justify-content: flex-end;
+    background-color: black;
+}
+
+.corner-github__icon {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.corner-github__iconPic {
+    width: 30%;
+    margin: 4.5px;
+    transform: rotate(-45deg)
 }
 
 .intro-container {
-    font-size: large;
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: column;
-    align-content: center;
+    align-items: center;
 }
 
 .intro-container__question {
-    font-size: 72px;
+    font-size: 5vw;
+    /* font-size: min(300vw, 18px); */
+    font-weight: 1000;
     color: var(--c-main);
     text-align: center;
 }
 
 .intro-container__button {
-    font-size: 50px;
-    font-weight: 800;
+    font-size: 3vw;
+    font-weight: 300;
     color: var(--c-secondary);
     margin: auto;
     padding: 14px 28px;
     background: none;
-    border: 5px solid;
+    border-radius: 24px;
+    border: 3px solid;
     border-color: var(--c-main);
     cursor: pointer;
 }
