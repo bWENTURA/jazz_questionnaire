@@ -1,11 +1,14 @@
+import {React, Fragment} from 'react';
 import 'animate.css';
 import './App.css';
 import MainPage from './components/MainPage/MainPage';
 
-function App() {
+const App = () => {
   return (
-    <MainPage></MainPage>
-    )
-}
+    <Fragment>
+      <MainPage />
+    </Fragment>
+    );
+};
 
 export default App;

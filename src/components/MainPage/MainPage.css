@@ -6,6 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1;
 }
 
 .corner-github {
@@ -19,6 +20,7 @@
     align-items:center;
     justify-content: flex-end;
     background-color: black;
+    z-index: 2;
 }
 
 .corner-github__icon {

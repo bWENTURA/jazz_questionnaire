@@ -1,13 +1,25 @@
-import React from "react";
+import {React, Fragment, useState} from "react";
 import './MainPage.css';
+import Navbar from "../Navbar";
 
 import GithubIcon from "../icons/git-hub-icon.png"
 
-const MainPage = () => {
+const MainPage = (props) => {
+
+    const [show, setShow] = useState(false)
+
+    const closeButtonHandler = () => {
+        setShow(false)
+    };
+
+    const showButtonHandler = () => {
+        setShow(true)
+    };
 
     return (
-        <div>
-            <article className="intro">
+        <Fragment>
+            <section className="intro">
+                {show ? <Navbar onClick={closeButtonHandler}></Navbar> : '' }
                 <div className="corner-github">
                     <a href="https://github.com/PIvSky" className="corner-github__icon">
                         <img alt="remote-repo-icon" src={GithubIcon} className="corner-github__iconPic"/>
@@ -15,10 +27,10 @@ const MainPage = () => {
                 </div>
                 <div className="intro-container">
                     <h1 className="intro-container__question">Do you have predispositions <br></br> to be a jazzman?</h1>
-                    <button className="intro-container__button ">Let's check it!</button>
+                    <button className="intro-container__button"onClick={showButtonHandler} >Let's check it!</button>
                 </div>
-            </article>
-        </div>
+            </section>
+        </ Fragment>
     )
 }
 

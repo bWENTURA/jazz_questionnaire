@@ -1,3 +1,14 @@
+/*-----------------------------------*\
+  $IMPORTS
+\*-----------------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&display=swap');
+
+/*-----------------------------------*\
+  $BASE
+\*-----------------------------------*/
+
+/* COLORS */
 :root {
   --c-main: #351c75;
   --c-secondary: #e69138;
@@ -6,10 +17,21 @@
   --c-background-dark: #f7d7b5;
 }
 
+/* FONTS */
+:root {
+  --t-main: 'Oswald', sans-serif;
+  --t-thin: 300;
+  --t-mid: 500;
+  --t-fat: 700;
+}
+
+* {
+  font-family: var(--t-main)
+}
+
 body {
   min-width: 320px;
   margin: 0;
-  font-family: 'Work Sans', sans-serif;;
 /* 
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -17,3 +39,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
 }
+
+/*-----------------------------------*\
+  $GENERICS
+\*-----------------------------------*/
+
+
+/*-----------------------------------*\
+  $DARK-MODE
+\*-----------------------------------*/
