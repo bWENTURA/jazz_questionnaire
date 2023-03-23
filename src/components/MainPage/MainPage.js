@@ -1,8 +1,9 @@
 import {React, Fragment, useState} from "react";
 import './MainPage.css';
-import Navbar from "../Navbar";
+import Navbar from "./Navbar";
 
 import GithubIcon from "../icons/git-hub-icon.png"
+// import BgImgJazz from "../graphics/background-jazz-band.png"
 
 const MainPage = (props) => {
 
@@ -26,9 +27,12 @@ const MainPage = (props) => {
                     </a>
                 </div>
                 <div className="intro-container">
-                    <h1 className="intro-container__question">Do you have predispositions <br></br> to be a jazzman?</h1>
-                    <button className="intro-container__button"onClick={showButtonHandler} >Let's check it!</button>
+                    <h1 className="intro-container__question">Can I be a jazzman?</h1>
+                    <button className="intro-container__button" onClick={showButtonHandler}>Let's check it!</button>
                 </div>
+                {/* <div className="background-jazz-band-img">
+                    <img alt="background-jazz-band-img" src={BgImgJazz}></img>
+                </div> */}
             </section>
         </ Fragment>
     )

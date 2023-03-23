@@ -6,12 +6,12 @@ import './Navbar.css';
 const Navbar = (props) => {
 
     return (
-        <header className="nav" onClick={props.onClick}>
+        <header className="nav">
             <h3>Navigation</h3>
             <nav className="nav-list">
-                <a href="/#">Section 1</a><br></br>
-                <a href="/#">Section 2</a><br></br>
-                <a href="/#">Section 3</a><br></br>
+                <a href="/#">Data</a><br></br>
+                <a href="/#">Quiz</a><br></br>
+                <a href="/#">Music Preferences</a><br></br>
                 <button className="nav-btn" onClick={props.onClick}>
                     <FaTimes />
                 </button>
