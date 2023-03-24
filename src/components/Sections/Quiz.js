@@ -5,6 +5,8 @@ import './Quiz.css';
 const Quiz = () => {
 
     const [expand, setExpand] = useState(false);
+    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [showScore, setShowScore] = useState(true);
 
     // changin visibility of section
     const expandMoreHandler = () => {
@@ -14,6 +16,46 @@ const Quiz = () => {
     const expandLessHandler = () => {
         setExpand(true)
     };
+
+    const onClickHandler = (event) => {
+        event.preventDefault();
+        if (currentQuestion + 1 < questions.length){
+           setCurrentQuestion(currentQuestion + 1)
+        } else {
+            setShowScore(false)
+        };
+    }
+    
+    const questions = [
+        {
+        text: "1. What kind of action you prefer?",
+          options: [
+            { id: 0, name: 'q1', text: "Improvised", isCorrect: true },
+            { id: 1, name: 'q1', text: "Well-Planed", isCorrect: false },
+          ],
+        },
+        {
+        text: "2. What kind of music you prefer?",
+            options: [
+          { id: 0, name: 'q2', text: "Blues", isCorrect: true },
+          { id: 1, name: 'q2', text: "Dance", isCorrect: false },
+        ],
+        },
+        {
+        text: "3. Where you prefer listening to music?",
+          options: [
+            { id: 0, name: 'q3', text: "In completly smoked club at basement", isCorrect: true },
+            { id: 1, name: 'q3', text: "In Filharmony", isCorrect: false },
+          ],
+        },
+        {
+        text: "4. What is more important for You in music?",
+          options: [
+            { id: 0, name: 'q4', text: "Invoked by music emotions", isCorrect: false },
+            { id: 1, name: 'q4', text: "Perfectly played every notes", isCorrect: true },
+          ],
+        },
+      ];
 
     return (
         <Fragment>
@@ -28,57 +70,36 @@ const Quiz = () => {
                 </ section>
             :
                 <section className='container'>
-                    <div className="container-tittle">    
+                    <div className="container-title">    
                         <h2>Questions</h2>
                         <button className="expand-more-button" onClick={expandLessHandler}>
                             <MdExpandLess className="expand-more-button-component"/>
                         </button>
                     </div>
-
-                    <form className="form-container" >
-                        <div className="question">
-                            <p>1. What kind of action you prefer?</p>
-                            <div>
-                                <input type="radio" name="q1" value="A" checked/>
-                                <label>Improvised</label>
+                    {showScore ?
+                        <form className="form-container" >
+                            <div className="question">
+                                <h3 className="question-title">{questions[currentQuestion].text}</h3>
+                                    {questions[currentQuestion].options.map(options => {
+                                        return (
+                                            <ul>
+                                                <input className="question-input" name ={options.name}type="radio"/>
+                                                <label className="question-label" key={options.id}>{options.text}</label>
+                                            </ul>
+                                        )
+                                    })}
                             </div>
-                            <div>
-                                <input type="radio" name="q1" value="B" checked/>
-                                <label>Well-Planed</label>
+                            <div className="question-button">
+                                <button type="submit" onClick={onClickHandler}>Submit checker only!</button>
                             </div>
-                        </div>
-                        <div className="question">
-                            <p>2. What kind of music you prefer?</p>
-                            <div className="question-answears">
-                                <input type="radio" name="q2" value="A" checked/>
-                                <label>Blues</label>
-                                <input type="radio" name="q2" value="B" checked/>
-                                <label>Dance</label>
+                        </form>
+                    :
+                        <form className="form-container false" >
+                            <div className="question">
+                                <h3>Go to the music player section!</h3>
                             </div>
-                        </div>
-                        <div className="question">
-                            <p>3. Where you prefer listening to music?</p>
-                            <div>
-                                <input type="radio" name="q3" value="A" checked/>
-                                <label>In completly smoked club at basement</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="q3" value="B" checked/>
-                                <label>In Filharmony</label>
-                            </div>
-                        </div>
-                        <div className="question">
-                            <p>4. What is more important for You in music?</p>
-                            <div>
-                                <input type="radio" name="q4" value="A" checked/>
-                                <label>Invoked emotions</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="q4" value="B" checked/>
-                                <label>Perfectly played every notes </label>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    }
                 </section>}
         </Fragment>
     )

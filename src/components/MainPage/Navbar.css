@@ -45,6 +45,9 @@ nav a {
     margin-top: 25px;
 }
 
+/* --------------
+     LARGE SCREEN
+*/
 @media screen and (min-width: 720px) {
     
 header {
