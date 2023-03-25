@@ -49,6 +49,7 @@
 .form input {
     font-weight: var(--t-thin);
     border: none;
+    border-radius: 13px;
     background-color: var(--c-background-input);
 }
 
