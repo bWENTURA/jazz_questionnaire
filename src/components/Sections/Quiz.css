@@ -33,9 +33,21 @@ ul {
     padding: 0px;
 }
 
+.question-input {
+    height: 0.9rem;
+    width: 1rem;
+    margin-right: 0.5rem;
+}
+
+.question-input:checked {
+    height: 1.1rem;
+    width: 1.2rem;
+    border-width: 5rem;
+    accent-color: rgb(57, 150, 167);
+}
+
 .question-button {
     grid-area: 2 / 3 / 3 / 4;
-    color: white;
     background-color: var(--c-main);
 
 }
