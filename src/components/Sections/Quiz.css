@@ -6,6 +6,7 @@
 .container-title {
     display:flex;
     justify-content: space-between;
+    align-items: center;
     height: 5vh;
     width: 100%;
     color: var(--c-secondary);
@@ -19,6 +20,7 @@
 .form-container {
     display: grid;
     grid-template-columns: 1fr 4fr 3fr;
+    /* without button delete this rows template below */
     grid-template-rows: 4fr 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
@@ -49,18 +51,26 @@ ul {
 .question-button {
     grid-area: 2 / 3 / 3 / 4;
     background-color: var(--c-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.question-button button {
+    color: var(--c-white);
+    background-color: var(--c-main);
+    border: none;
 }
 
 @media screen and (min-width: 720px) {
     
-.form-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    align-content: center;
-}
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: center;
+    }
 
 }

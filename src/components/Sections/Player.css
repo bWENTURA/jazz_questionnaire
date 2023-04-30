@@ -1,5 +1,6 @@
 .player-container {
     width: 50%;
+    margin: 10px;
     padding: 1rem;
     border: 1px solid rgb(141, 141, 141);
     border-radius: 10px;
@@ -9,6 +10,7 @@
     align-items: center;
     justify-content: space-between;
     background-color: var(--c-main);
+    border: none;
 }
 
 .title{
@@ -22,7 +24,7 @@
 .navigation-wrapper {
     min-width: 100%;
     background-color: var(--c-secondary);
-    height: 5px;
+    height: 6px;
     border-radius: 30px;
     cursor: pointer;
 }
@@ -30,7 +32,7 @@
 .seek-bar{
     width: 0;
     height: 100%;
-    background-color: rgb(67, 112, 58);
+    background-color: rgb(218, 205, 35);
     border-radius: 30px;
 }
 
