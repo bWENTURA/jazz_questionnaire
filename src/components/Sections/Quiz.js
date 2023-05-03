@@ -83,7 +83,7 @@ const Quiz = () => {
                                     {questions[currentQuestion].options.map(options => {
                                         return (
                                             <ul>
-                                                <input className="question-input" name ={options.name}type="radio"/>
+                                                <input className="question-input" name ={options.name} type="radio"/>
                                                 <label className="question-label" key={options.id}>{options.text}</label>
                                             </ul>
                                         )

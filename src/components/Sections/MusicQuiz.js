@@ -13,47 +13,57 @@ import { BsAirplane } from "react-icons/bs";
 
 const songsData = [
     {
-        title: "Beirut - Prezlaurberg",
+        title: "1. Beirut - Prezlaurberg",
         src: `${Beirut}`,
+        value: 0,
+        checked: false,
         id: 0,
     },
     {
-        title: "Art Blakey - Moanin",
+        title: "2. Art Blakey - Moanin",
         src: `${Moanin}`,
+        value: 2,
+        checked: false,
         id: 1,
     },
     {
-        title: "Bill Evans - Nardis",
+        title: "3. Bill Evans - Nardis",
         src: `${Nardis}`,
+        value: 2,
+        checked: false,
         id: 2,
     },
     {
-        title: "Bob Marley - No Woman No Cry",
+        title: "4. Bob Marley - No Woman No Cry",
         src: `${Marley}`,
+        value: 0,
+        checked: false,
         id: 3,
     },
     {
-        title: "Brad Mehldau - Paris",
+        title: "5. Brad Mehldau - Paris",
         src: `${Mehldau}`,
+        value: 2,
+        checked: false,
         id: 4,
     },
     {
-        title: "Arms and the sleepers",
+        title: "6. Arms and the sleepers",
         src: `${Architekt}`,
+        value: 0,
+        checked: false,
         id: 5,
     },
 ]
 
 const MusicQuiz = () => {
 
-
-
-
     // React Hooks
     const [expand, setExpand] = useState(false);
     const [songs, setSongs] = useState(songsData);
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentSong, setCurrentSong] = useState(songsData[0]);
+    const [checkValue, setCheckValue] = useState(songsData)
     const audioElem = useRef()
 
     // Play or pause music
@@ -79,10 +89,12 @@ const MusicQuiz = () => {
         const ct = audioElem.current.currentTime;
 
         setCurrentSong({...currentSong, 'progress': ct / duration * 100, 'length': duration})
-    };    
+    };
+    
+    const quizHandler = (e) => {
+        e.preventDefault();
+    };
 
-
-    // Player
     return (
         <Fragment>
             {expand ? 
@@ -105,7 +117,6 @@ const MusicQuiz = () => {
                     <div className="music-quiz">
                         <audio 
                             src={currentSong.src}
-                            // src={Nardis} 
                             ref={audioElem} 
                             onTimeUpdate={onPlaying}
                         />
@@ -118,6 +129,17 @@ const MusicQuiz = () => {
                             currentSong={currentSong}
                             setCurrentSong={setCurrentSong}
                         />
+                    </div>
+                    <div className="answears-container">
+                        <div className="anwsears-list">
+                            {checkValue.map((checkbox) => (
+                                <ul>
+                                    <input className="MusicQuiz-item" type='checkbox' checked={checkbox.checked} onChange={quizHandler}></input>
+                                    <label className="MusicQuiz-item" key={checkbox.title}>{checkbox.title}></label>
+                                </ul>
+                            ))}
+                            <button onClick={quizHandler}>Submit checker only!</button>
+                        </div>
                     </div>
                 </section>}
         </Fragment>

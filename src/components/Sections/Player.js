@@ -24,20 +24,21 @@ const Player = ({songs, audioElem, isPlaying, setIsPlaying, currentSong, setCurr
 
   // change audio file to previous one
   const skipBack = () => {
-    const index = songs.findIndex(x=>x.title === currentSong.title)
+    const index = songs.findIndex(song => song.title === currentSong.title)
     if (index === 0) {
       setCurrentSong(songs[songs.length - 1] )
     } else {
       setCurrentSong(songs[index - 1])
     }
     audioElem.current.currentTime = 0;
+    // take changed audio file to beggining
   }
 
   // change audio file to next one
   const skipNext = () => {
-    const index = songs.findIndex(x=>x.title === currentSong.title)
+    const index = songs.findIndex(song => song.title === currentSong.title)
     if (index === songs.length - 1) {
-      setCurrentSong(songs[songs[0]] )
+      setCurrentSong(songs[0] )
     } else {
       setCurrentSong(songs[index + 1])
     }

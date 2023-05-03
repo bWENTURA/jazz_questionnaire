@@ -27,12 +27,29 @@ h2 {
     color: var(--c-white)
 }
 
+.answears-container {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.anwsears-list{
+    grid-area: 1 / 2 / 2 / 3;
+    margin: auto;
+}
+
+/* .anwsears-list input {
+    stylize this element
+} */
 /* 
 LARGE SCREEN
 */
 
 @media screen and (min-width: 720px) {
-   
-    /*  */
+    .answears-container {
+        grid-template-columns: 1fr 2fr 1fr;
+    }
 
 }
