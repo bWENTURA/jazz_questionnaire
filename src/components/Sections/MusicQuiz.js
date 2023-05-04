@@ -115,7 +115,7 @@ const MusicQuiz = () => {
     return (
         <Fragment>
             {expand ? 
-                <section className='container'>
+                <section id="music-quiz" className='container'>
                     <div className="container-title">    
                         <h2>Music Quiz</h2>
                         <button className="expand-more-button" onClick={expandMoreHandler}>
@@ -124,7 +124,7 @@ const MusicQuiz = () => {
                     </div>
                 </ section>
             :
-                <section className='container'>
+                <section id="music-quiz" className='container'>
                     <div className="container-title">    
                         <h2>Music Quiz</h2>
                         <button className="expand-more-button" onClick={expandLessHandler}>

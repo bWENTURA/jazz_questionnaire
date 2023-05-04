@@ -13,8 +13,8 @@ const App = () => {
       <MainPage />
       <UserData />
       <Quiz />
-      <Result />
       <MusicQuiz />
+      <Result />
     </Fragment>
     );
 };

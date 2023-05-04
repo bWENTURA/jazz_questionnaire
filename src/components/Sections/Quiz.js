@@ -2,11 +2,43 @@ import {React, Fragment, useState} from "react";
 import {MdExpandMore, MdExpandLess} from 'react-icons/md';
 import './Quiz.css';
 
+const questions = [
+    {
+    text: "1. What kind of action you prefer?",
+      options: [
+        { id: 0, name: 'q1', text: "Improvised", checked: false, value: 2},
+        { id: 1, name: 'q1', text: "Well-Planed", checked: false, value: 0},
+      ],
+    },
+    {
+    text: "2. What kind of music you prefer?",
+        options: [
+      { id: 0, name: 'q2', text: "Blues", checked: false, value: 2 },
+      { id: 1, name: 'q2', text: "Dance", checked: false, value: 0 },
+    ],
+    },
+    {
+    text: "3. Where you prefer listening to music?",
+      options: [
+        { id: 0, name: 'q3', text: "In completly smoked club at basement", checked: false, value: 2 },
+        { id: 1, name: 'q3', text: "In Filharmony", checked: false, value: 0 },
+      ],
+    },
+    {
+    text: "4. What is more important for You in music?",
+      options: [
+        { id: 0, name: 'q4', text: "Invoked by music emotions", checked: false, value: 2 },
+        { id: 1, name: 'q4', text: "Perfectly played every notes", checked: false, value: 0 },
+      ],
+    },
+  ];
+
 const Quiz = () => {
 
     const [expand, setExpand] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(true);
+    // const [question, setQuestion] = useState(questions);
 
     // changin visibility of section
     const expandMoreHandler = () => {
@@ -15,52 +47,21 @@ const Quiz = () => {
 
     const expandLessHandler = () => {
         setExpand(true)
-    };
+    };    
 
-    const onClickHandler = (event) => {
+    const nextQuestionHandler = (event) => {
         event.preventDefault();
         if (currentQuestion + 1 < questions.length){
-           setCurrentQuestion(currentQuestion + 1)
+            setCurrentQuestion(currentQuestion + 1)
         } else {
-            setShowScore(false)
+            setShowScore(false);
         };
     }
     
-    const questions = [
-        {
-        text: "1. What kind of action you prefer?",
-          options: [
-            { id: 0, name: 'q1', text: "Improvised", isCorrect: true },
-            { id: 1, name: 'q1', text: "Well-Planed", isCorrect: false },
-          ],
-        },
-        {
-        text: "2. What kind of music you prefer?",
-            options: [
-          { id: 0, name: 'q2', text: "Blues", isCorrect: true },
-          { id: 1, name: 'q2', text: "Dance", isCorrect: false },
-        ],
-        },
-        {
-        text: "3. Where you prefer listening to music?",
-          options: [
-            { id: 0, name: 'q3', text: "In completly smoked club at basement", isCorrect: true },
-            { id: 1, name: 'q3', text: "In Filharmony", isCorrect: false },
-          ],
-        },
-        {
-        text: "4. What is more important for You in music?",
-          options: [
-            { id: 0, name: 'q4', text: "Invoked by music emotions", isCorrect: false },
-            { id: 1, name: 'q4', text: "Perfectly played every notes", isCorrect: true },
-          ],
-        },
-      ];
-
     return (
         <Fragment>
             {expand ? 
-                <section className='container'>
+                <section id="quiz" className='container'>
                     <div className="container-tittle">    
                         <h2>Questions</h2>
                         <button className="expand-more-button" onClick={expandMoreHandler}>
@@ -69,7 +70,7 @@ const Quiz = () => {
                     </div>
                 </ section>
             :
-                <section className='container'>
+                <section id="quiz" className='container'>
                     <div className="container-title">    
                         <h2>Questions</h2>
                         <button className="expand-more-button" onClick={expandLessHandler}>
@@ -90,7 +91,7 @@ const Quiz = () => {
                                     })}
                             </div>
                             <div className="question-button">
-                                <button type="submit" onClick={onClickHandler}>Submit checker only!</button>
+                                <button type="submit" onClick={nextQuestionHandler}>Next question please!</button>
                             </div>
                         </form>
                     :
