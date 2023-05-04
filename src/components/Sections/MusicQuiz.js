@@ -91,9 +91,26 @@ const MusicQuiz = () => {
         setCurrentSong({...currentSong, 'progress': ct / duration * 100, 'length': duration})
     };
     
-    const quizHandler = (e) => {
-        e.preventDefault();
+    const checkHandler = (e) => {
+        const checkboxTitle = e.target.title;
+        setCheckValue((prevValues) => 
+            prevValues.map((checkbox) => 
+            checkbox.title === checkboxTitle ? {...checkbox, checked: e.target.checked } : checkbox
+            )
+        );
     };
+
+    const sumHandler = () => {
+        let sum = 0;
+        checkValue.forEach((checkbox) => {
+            if (checkbox.checked === true) {
+                sum += checkbox.value;
+            }
+        });
+        return console.log(sum);
+    };
+   
+
 
     return (
         <Fragment>
@@ -133,12 +150,14 @@ const MusicQuiz = () => {
                     <div className="answears-container">
                         <div className="anwsears-list">
                             {checkValue.map((checkbox) => (
-                                <ul>
-                                    <input className="MusicQuiz-item" type='checkbox' checked={checkbox.checked} onChange={quizHandler}></input>
-                                    <label className="MusicQuiz-item" key={checkbox.title}>{checkbox.title}></label>
+                                <ul key={checkbox.title}>
+                                    <label key={checkbox.title}>
+                                        <input title={checkbox.title} type='checkbox' checked={checkbox.checked} onChange={checkHandler}></input>
+                                        {checkbox.title}
+                                    </label>
                                 </ul>
                             ))}
-                            <button onClick={quizHandler}>Submit checker only!</button>
+                            <button onClick={sumHandler}>Submit checker only!</button>
                         </div>
                     </div>
                 </section>}
