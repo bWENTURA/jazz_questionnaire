@@ -10,11 +10,11 @@ import MusicQuiz from './components/Sections/MusicQuiz';
 const App = () => {
   return (
     <Fragment>
-      <MainPage />
-      <UserData />
+      {/* <MainPage /> */}
+      {/* <UserData /> */}
       <Quiz />
-      <MusicQuiz />
-      <Result />
+      {/* <MusicQuiz /> */}
+      {/* <Result /> */}
     </Fragment>
     );
 };
