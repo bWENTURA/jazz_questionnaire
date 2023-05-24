@@ -38,6 +38,8 @@ const Quiz = () => {
     const [expand, setExpand] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(true);
+    // poniższy useState będzie przechowywać wartość zaznaczonego pola
+    const [selectedInput, setSelectedInput] = useState('');
     // const [question, setQuestion] = useState(questions);
     const [answear, setAnswear] = useState({})
 
@@ -51,34 +53,54 @@ const Quiz = () => {
     };    
 
     const answearHandler = (event) => {
-        // const checked = event.target.checked
+        setSelectedInput(event.target.value);
+        // const answear = questions[currentQuestion].options;
         questions[currentQuestion].options.map(answear => {
-            if(answear.value===2){
+            if(selectedInput){
                 setAnswear(prevAnswear => ({
                     ...prevAnswear,
-                    [answear.name]: 2,
+                    [answear.name]: event.target.value,
                 }))
             }else{
-                setAnswear(prevAnswear => ({
-                    ...prevAnswear,
-                    [answear.name]: 0,
-                }))
+                console.log('sth went no yes my friend')
             }
         })
-    };
+      }
+
+    // const answearHandler = (event) => {
+    //     const checked = event.target.checked
+    //     questions[currentQuestion].options.map(answear => {
+    //         if(answear.value===2){
+    //             setAnswear(prevAnswear => ({
+    //                 ...prevAnswear,
+    //                 [answear.name]: 2,
+    //             }))
+    //         }else{
+    //             setAnswear(prevAnswear => ({
+    //                 ...prevAnswear,
+    //                 [answear.name]: 0,
+    //             }))
+    //         }
+    //     })
+    // };
 
     const nextQuestionHandler = (event) => {
         event.preventDefault();
+            console.log('Selected value: ', selectedInput);
         if (currentQuestion + 1 < questions.length){
             setCurrentQuestion(currentQuestion + 1)
+
             // reset input radio in next question and without influence on questions key 'checked'
             const input = document.querySelectorAll("input[type='radio']");
             input.forEach((input) => {
                 input.checked = false;
             })
+
             console.log(answear);
+
         } else {
             setShowScore(false);
+
             console.log(answear);
 
         };
@@ -114,8 +136,10 @@ const Quiz = () => {
                                                     className="question-input" 
                                                     name ={options.name} 
                                                     type="radio"
+                                                    id={options.id}
                                                     value = {options.value}
-                                                    onClick={answearHandler}
+                                                    checked={selectedInput===options.value.toString()}
+                                                    onChange={answearHandler}
                                                 />
                                                 <label 
                                                     className="question-label" 
