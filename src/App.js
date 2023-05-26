@@ -1,4 +1,4 @@
-import {React, Fragment} from 'react';
+import {React, Fragment, useState} from 'react';
 import 'animate.css';
 import './App.css';
 import MainPage from './components/MainPage/MainPage';
@@ -8,13 +8,36 @@ import Result from './components/Sections/Result';
 import MusicQuiz from './components/Sections/MusicQuiz';
 
 const App = () => {
+
+  const [name, setName] = useState('NAME');
+  const [surname, setSurname] = useState('SURNAME');
+  // const [date, setDate] = useState('');
+
+  const handleNameChange = (value) => {
+    setName(value);
+  };
+  const handleSurnameChange = (value) => {
+    setSurname(value);
+  };
+  // const handleDateChange = (value) => {
+  //   setDate(value)
+  // };
+
   return (
     <Fragment>
       {/* <MainPage /> */}
-      {/* <UserData /> */}
-      <Quiz />
+      <UserData
+        onNameChange={handleNameChange}
+        onSurnameChange={handleSurnameChange}
+        // onDateChange={handleDateChange}
+      />
+      {/* <Quiz /> */}
       {/* <MusicQuiz /> */}
-      {/* <Result /> */}
+      <Result 
+        name={name}
+        surname={surname}
+        // date={date}
+        />
     </Fragment>
     );
 };
