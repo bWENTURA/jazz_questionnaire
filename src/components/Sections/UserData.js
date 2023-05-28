@@ -2,7 +2,7 @@ import {Fragment, React, useState}from "react";
 import {MdExpandMore, MdExpandLess} from 'react-icons/md';
 import './UserData.css';
 
-const UserData = ({onNameChange}, {onSurnameChange}) => {
+const UserData = ({onNameChange, onSurnameChange, onDateChange}) => {
 
     const [expand, setExpand] = useState(false);
 
@@ -15,9 +15,9 @@ const UserData = ({onNameChange}, {onSurnameChange}) => {
         onSurnameChange(event.target.value);
     };
 
-    // const dateChangeHandler = (event) => {
-    //     onDateChange('');
-    // };
+    const dateChangeHandler = (event) => {
+        onDateChange(event.target.value);
+    };
 
     // changin visibility of section
     const expandMoreHandler = () => {
@@ -66,10 +66,10 @@ const UserData = ({onNameChange}, {onSurnameChange}) => {
                         <label>Surname</label>
                         <input type="text" onChange={surnameChangeHandler} />
                     </div>
-                    {/* <div className='form-date'>
+                    <div className='form-date'>
                         <label>Birth Date</label>
                         <input type="date" min="1940-01-01" step="2023-05-22" onChange={dateChangeHandler}/>
-                    </div> */}
+                    </div>
                     {/* <button type="submit" onClick={onClickHandler}>Submit checker only!</button> */}
 
                 </form>

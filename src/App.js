@@ -9,9 +9,9 @@ import MusicQuiz from './components/Sections/MusicQuiz';
 
 const App = () => {
 
-  const [name, setName] = useState('NAME');
-  const [surname, setSurname] = useState('SURNAME');
-  // const [date, setDate] = useState('');
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
+  const [date, setDate] = useState('');
 
   const handleNameChange = (value) => {
     setName(value);
@@ -19,24 +19,24 @@ const App = () => {
   const handleSurnameChange = (value) => {
     setSurname(value);
   };
-  // const handleDateChange = (value) => {
-  //   setDate(value)
-  // };
+  const handleDateChange = (value) => {
+    setDate(value)
+  };
 
   return (
     <Fragment>
-      {/* <MainPage /> */}
+      <MainPage />
       <UserData
         onNameChange={handleNameChange}
         onSurnameChange={handleSurnameChange}
-        // onDateChange={handleDateChange}
+        onDateChange={handleDateChange}
       />
-      {/* <Quiz /> */}
-      {/* <MusicQuiz /> */}
+      <Quiz />
+      <MusicQuiz />
       <Result 
         name={name}
         surname={surname}
-        // date={date}
+        date={date}
         />
     </Fragment>
     );
