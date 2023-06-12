@@ -5,7 +5,7 @@ import './Quiz.css';
 const questions = [
     {
     text: "1. What kind of action you prefer?",
-      options: [
+        options: [
         { id: 0, name: 'q1', text: "Improvised", checked: true, value: 2},
         { id: 1, name: 'q1', text: "Well-Planed", checked: false, value: 0},
       ],
@@ -39,9 +39,9 @@ const Quiz = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(true);
     // poniższy useState będzie przechowywać wartość zaznaczonego pola
-    const [selectedInput, setSelectedInput] = useState('');
+    const [selectedInput, setSelectedInput] = useState(0);
     // const [question, setQuestion] = useState(questions);
-    const [answear, setAnswear] = useState({})
+    const [answer, setAnswer] = useState({})
 
     // changin visibility of section
     const expandMoreHandler = () => {
@@ -52,38 +52,22 @@ const Quiz = () => {
         setExpand(true)
     };    
 
-    const answearHandler = (event) => {
+    const answerHandler = (event) => {
         setSelectedInput(event.target.value);
-        // const answear = questions[currentQuestion].options;
-        questions[currentQuestion].options.map(answear => {
-            if(selectedInput){
-                setAnswear(prevAnswear => ({
-                    ...prevAnswear,
-                    [answear.name]: event.target.value,
-                }))
-            }else{
-                console.log('sth went no yes my friend')
-            }
-        })
-      }
-
-    // const answearHandler = (event) => {
-    //     const checked = event.target.checked
-    //     questions[currentQuestion].options.map(answear => {
-    //         if(answear.value===2){
-    //             setAnswear(prevAnswear => ({
-    //                 ...prevAnswear,
-    //                 [answear.name]: 2,
-    //             }))
-    //         }else{
-    //             setAnswear(prevAnswear => ({
-    //                 ...prevAnswear,
-    //                 [answear.name]: 0,
-    //             }))
-    //         }
-    //     })
-    // };
-
+      
+        // jeżeli masz zmienną, pod którą jest wartość liczbowa 0 (lub chyba też ujemne; mniej bądź równe 0) to boolean będzie false!!!
+        if (currentQuestion !== null) {
+          questions[currentQuestion].options.forEach(option => {
+            setAnswer(prevAnswer => ({
+              ...prevAnswer,
+              [option.name]: Number(event.target.value),
+            }));
+          });
+        } else {
+          console.log('Something went wrong, my friend.');
+        }
+      };
+      
     const nextQuestionHandler = (event) => {
         event.preventDefault();
             console.log('Selected value: ', selectedInput);
@@ -95,13 +79,10 @@ const Quiz = () => {
             input.forEach((input) => {
                 input.checked = false;
             })
-
-            console.log(answear);
-
+            console.log(answer);
         } else {
             setShowScore(false);
-
-            console.log(answear);
+            console.log(answer);
 
         };
     }
@@ -138,8 +119,8 @@ const Quiz = () => {
                                                     type="radio"
                                                     id={options.id}
                                                     value = {options.value}
-                                                    checked={selectedInput===options.value.toString()}
-                                                    onChange={answearHandler}
+                                                    // checked={selectedInput===options.value.toString()} dzięki wyłączeniu tej opcji, użytkownik zmuszony jest do wybrania opcji
+                                                    onChange={answerHandler}
                                                 />
                                                 <label 
                                                     className="question-label" 

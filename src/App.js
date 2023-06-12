@@ -25,12 +25,12 @@ const App = () => {
 
   return (
     <Fragment>
-      <MainPage />
-      <UserData
+      {/* <MainPage /> */}
+      {/* <UserData
         onNameChange={handleNameChange}
         onSurnameChange={handleSurnameChange}
         onDateChange={handleDateChange}
-      />
+      /> */}
       <Quiz />
       <MusicQuiz />
       <Result 
