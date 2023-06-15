@@ -2,60 +2,62 @@ import {React, Fragment, useState, useRef, useEffect} from "react";
 import Player from "./Player";
 import {MdExpandMore, MdExpandLess} from 'react-icons/md';
 import './MusicQuiz.css';
+import songsData from '../../data/songsData.json'
+
 // music files import
-import Beirut from "../audio/Prenzlaurberg.mp3"
-import Moanin from "../audio/Moanin.mp3";
-import Nardis from '../audio/Nardis.mp3';
-import Marley from "../audio/No-Woman-No-Cry.mp3";
-import Mehldau from "../audio/Paris.mp3";
-import Architekt from "../audio/The-Architekt.mp3"
+// import Beirut from "../audio/Prenzlaurberg.mp3"
+// import Moanin from "../audio/Moanin.mp3";
+// import Nardis from '../audio/Nardis.mp3';
+// import Marley from "../audio/No-Woman-No-Cry.mp3";
+// import Mehldau from "../audio/Paris.mp3";
+// import Architekt from "../audio/The-Architekt.mp3"
 import { BsAirplane } from "react-icons/bs";
 
 // Audio files and data in array
-const songsData = [
-    {
-        title: "1. Beirut - Prezlaurberg",
-        src: `${Beirut}`,
-        value: 0,
-        checked: false,
-        id: 0,
-    },
-    {
-        title: "2. Art Blakey - Moanin",
-        src: `${Moanin}`,
-        value: 2,
-        checked: false,
-        id: 1,
-    },
-    {
-        title: "3. Bill Evans - Nardis",
-        src: `${Nardis}`,
-        value: 2,
-        checked: false,
-        id: 2,
-    },
-    {
-        title: "4. Bob Marley - No Woman No Cry",
-        src: `${Marley}`,
-        value: 0,
-        checked: false,
-        id: 3,
-    },
-    {
-        title: "5. Brad Mehldau - Paris",
-        src: `${Mehldau}`,
-        value: 2,
-        checked: false,
-        id: 4,
-    },
-    {
-        title: "6. Arms and the sleepers",
-        src: `${Architekt}`,
-        value: 0,
-        checked: false,
-        id: 5,
-    },
-]
+// const songsData = [
+//     {
+//         title: "1. Beirut - Prezlaurberg",
+//         src: `${Beirut}`,
+//         value: 0,
+//         checked: false,
+//         id: 0,
+//     },
+//     {
+//         title: "2. Art Blakey - Moanin",
+//         src: `${Moanin}`,
+//         value: 2,
+//         checked: false,
+//         id: 1,
+//     },
+//     {
+//         title: "3. Bill Evans - Nardis",
+//         src: `${Nardis}`,
+//         value: 2,
+//         checked: false,
+//         id: 2,
+//     },
+//     {
+//         title: "4. Bob Marley - No Woman No Cry",
+//         src: `${Marley}`,
+//         value: 0,
+//         checked: false,
+//         id: 3,
+//     },
+//     {
+//         title: "5. Brad Mehldau - Paris",
+//         src: `${Mehldau}`,
+//         value: 2,
+//         checked: false,
+//         id: 4,
+//     },
+//     {
+//         title: "6. Arms and the sleepers",
+//         src: `${Architekt}`,
+//         value: 0,
+//         checked: false,
+//         id: 5,
+//     },
+// ]
 
 const MusicQuiz = () => {
 
@@ -84,6 +86,7 @@ const MusicQuiz = () => {
     const expandLessHandler = () => {
         setExpand(true)
     };
+
     // music player
     const onPlaying = () => {
         const duration = audioElem.current.duration;
@@ -92,6 +95,9 @@ const MusicQuiz = () => {
         setCurrentSong({...currentSong, 'progress': ct / duration * 100, 'length': duration})
     };
     
+    // setCheckValue returns new object, with changed (if checkbox.title === checkboxTitle)
+    // value of chacked on true and rest of keys with no changes(spread operator);
+    //  else, return not-changed object; 
     const checkHandler = (e) => {
         const checkboxTitle = e.target.title;
         setCheckValue((prevValues) => 
@@ -101,6 +107,7 @@ const MusicQuiz = () => {
         );
     };
 
+    // this func sum values of checked checkbox
     const sumHandler = () => {
         let sum = 0;
         checkValue.forEach((checkbox) => {
