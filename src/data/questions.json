@@ -1,0 +1,78 @@
+[
+    {
+      "text": "1. What kind of action you prefer?",
+      "options": [
+        {
+          "id": 0,
+          "name": "q1",
+          "text": "Improvised",
+          "checked": true,
+          "value": 2
+        },
+        {
+          "id": 1,
+          "name": "q1",
+          "text": "Well-Planed",
+          "checked": false,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "text": "2. What kind of music you prefer?",
+      "options": [
+        {
+          "id": 0,
+          "name": "q2",
+          "text": "Blues",
+          "checked": true,
+          "value": 2
+        },
+        {
+          "id": 1,
+          "name": "q2",
+          "text": "Dance",
+          "checked": false,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "text": "3. Where you prefer listening to music?",
+      "options": [
+        {
+          "id": 0,
+          "name": "q3",
+          "text": "In completely smoked club at basement",
+          "checked": true,
+          "value": 2
+        },
+        {
+          "id": 1,
+          "name": "q3",
+          "text": "In Filharmony",
+          "checked": false,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "text": "4. What is more important for You in music?",
+      "options": [
+        {
+          "id": 0,
+          "name": "q4",
+          "text": "Invoked by music emotions",
+          "checked": true,
+          "value": 2
+        },
+        {
+          "id": 1,
+          "name": "q4",
+          "text": "Perfectly played every notes",
+          "checked": false,
+          "value": 0
+        }
+      ]
+    }
+]

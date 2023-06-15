@@ -28,16 +28,6 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange}) => {
         setExpand(true)
     };
 
-    // submit ---> in progress
-    // const onClickHandler = (e) => {
-    //     e.preventDefault();
-    //     console.log(name, surname, date)
-    //     setName('');
-    //     setSurname('');
-    //     setDate('');
-    // };
-
-
     return (
         <Fragment>
             {expand ? 
@@ -71,7 +61,6 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange}) => {
                         <input type="date" min="1940-01-01" step="2023-05-22" onChange={dateChangeHandler}/>
                     </div>
                     {/* <button type="submit" onClick={onClickHandler}>Submit checker only!</button> */}
-
                 </form>
                 </section>
                 }

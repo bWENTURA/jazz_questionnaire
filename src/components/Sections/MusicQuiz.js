@@ -11,6 +11,7 @@ import Mehldau from "../audio/Paris.mp3";
 import Architekt from "../audio/The-Architekt.mp3"
 import { BsAirplane } from "react-icons/bs";
 
+// Audio files and data in array
 const songsData = [
     {
         title: "1. Beirut - Prezlaurberg",
