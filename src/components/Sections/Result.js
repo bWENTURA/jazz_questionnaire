@@ -1,20 +1,26 @@
 import {React, Fragment, useState} from "react";
 import './Result.css';
 
-const Result = ({name, surname, date, questionQuizScore}) => {
+const Result = ({name, surname, date, questionQuizScore, audioQuizScore}) => {
 
   const [displayName, setDisplayName] = useState(name);
   const [displaySurname, setDisplaySurname] = useState(surname);
   const [displayDate, setDisplayDate] = useState(date);
-  const [displayScore, setDisplayScore] = useState(questionQuizScore);
+  // const [questionQuizScore, setQuestionQuizScore] = useState(questionQuizScore);
+  // const [audioQuizScore, setAudioQuizScore] = useState(audioQuizScore)
+  const [displayScore, setDisplayScore] = useState('')
 
   const onClickHandler = (e) => {
     e.preventDefault();
     setDisplayName(name);
     setDisplaySurname(surname);
     setDisplayDate(date);
-    setDisplayScore(questionQuizScore);
-    console.log(name, surname, date)
+    // setQuestionQuizScore(questionQuizScore);
+    // setAudioQuizScore(audioQuizScore)
+    setDisplayScore(questionQuizScore + audioQuizScore)
+    // console.log(questionQuizScore)
+    // console.log(displayAudioScore)
+    console.log(displayScore)
 
     // setDisplayDate(date)
   };
@@ -32,7 +38,8 @@ const Result = ({name, surname, date, questionQuizScore}) => {
             </div>
             <div className="quiz-container">
               <div className="quiz">
-                <p className="quiz-result">{displayScore}</p>
+                <p className="quiz-ques">{displayScore}</p>
+                {/* <p className="quiz-audio">{displayAudioScore}</p> */}
               </div>
             </div>
         </section>
