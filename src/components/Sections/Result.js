@@ -15,14 +15,8 @@ const Result = ({name, surname, date, questionQuizScore, audioQuizScore}) => {
     setDisplayName(name);
     setDisplaySurname(surname);
     setDisplayDate(date);
-    // setQuestionQuizScore(questionQuizScore);
-    // setAudioQuizScore(audioQuizScore)
     setDisplayScore(questionQuizScore + audioQuizScore)
-    // console.log(questionQuizScore)
-    // console.log(displayAudioScore)
     console.log(displayScore)
-
-    // setDisplayDate(date)
   };
 
     return (
@@ -39,7 +33,6 @@ const Result = ({name, surname, date, questionQuizScore, audioQuizScore}) => {
             <div className="quiz-container">
               <div className="quiz">
                 <p className="quiz-ques">{displayScore}</p>
-                {/* <p className="quiz-audio">{displayAudioScore}</p> */}
               </div>
             </div>
         </section>
