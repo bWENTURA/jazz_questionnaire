@@ -8,16 +8,16 @@ const Result = ({name, surname, date, questionQuizScore, audioQuizScore}) => {
   const [displayDate, setDisplayDate] = useState(date);
   // const [questionQuizScore, setQuestionQuizScore] = useState(questionQuizScore);
   // const [audioQuizScore, setAudioQuizScore] = useState(audioQuizScore)
-  const [displayScore, setDisplayScore] = useState('')
+  const [displayScore, setDisplayScore] = useState(0)
 
   const onClickHandler = (e) => {
     e.preventDefault();
     setDisplayName(name);
     setDisplaySurname(surname);
     setDisplayDate(date);
-    setDisplayScore(questionQuizScore + audioQuizScore)
-    console.log(displayScore)
+    setDisplayScore(Math.floor(((questionQuizScore + audioQuizScore)/14)*100));
   };
+  console.log(displayScore)
 
     return (
       <Fragment>
@@ -32,7 +32,7 @@ const Result = ({name, surname, date, questionQuizScore, audioQuizScore}) => {
             </div>
             <div className="quiz-container">
               <div className="quiz">
-                <p className="quiz-ques">{displayScore}</p>
+                <div className="quiz-ques">{displayScore}%</div>
               </div>
             </div>
         </section>
