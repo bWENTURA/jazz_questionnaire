@@ -92,7 +92,7 @@ const Quiz = ({onQuestionChange, onAnswerCheck, onCurrentQuestion, onShowScore})
         <Fragment>
             {expand ? 
                 <section id="quiz" className='container'>
-                    <div className="container-tittle">    
+                    <div className="quiz-container-tittle">    
                         <h2>Questions</h2>
                         <button className="expand-more-button" onClick={expandMoreHandler}>
                             <MdExpandMore />
@@ -101,7 +101,7 @@ const Quiz = ({onQuestionChange, onAnswerCheck, onCurrentQuestion, onShowScore})
                 </ section>
             :
                 <section id="quiz" className='container'>
-                    <div className="container-title">    
+                    <div className="quiz-container-title">    
                         <h2>Questions</h2>
                         <button className="expand-more-button" onClick={expandLessHandler}>
                             <MdExpandLess className="expand-more-button-component"/>
@@ -142,8 +142,9 @@ const Quiz = ({onQuestionChange, onAnswerCheck, onCurrentQuestion, onShowScore})
                                 <h3>Go to the music player section!</h3>
                             </div>
                         </form>
-                    }
-                </section>}
+                     }
+                </section>
+            }
         </Fragment>
     )
 }

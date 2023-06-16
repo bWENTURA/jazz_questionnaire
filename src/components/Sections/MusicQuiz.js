@@ -97,7 +97,7 @@ const MusicQuiz = ({onCheckHandler, onSumHandler, onSongData}) => {
         <Fragment>
             {expand ? 
                 <section id="music-quiz" className='container'>
-                    <div className="container-title">    
+                    <div className="music-quiz-container-title">    
                         <h2>Music Quiz</h2>
                         <button className="expand-more-button" onClick={expandMoreHandler}>
                             <MdExpandMore />
@@ -106,7 +106,7 @@ const MusicQuiz = ({onCheckHandler, onSumHandler, onSongData}) => {
                 </ section>
             :
                 <section id="music-quiz" className='container'>
-                    <div className="container-title">    
+                    <div className="music-quiz-container-title">    
                         <h2>Music Quiz</h2>
                         <button className="expand-more-button" onClick={expandLessHandler}>
                             <MdExpandLess className="expand-more-button-component"/>

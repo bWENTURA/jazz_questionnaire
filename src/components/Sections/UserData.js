@@ -32,7 +32,7 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange}) => {
         <Fragment>
             {expand ? 
                 <section id="data" className='container'>
-                    <div className="container-tittle">    
+                    <div className="data-container-tittle">    
                         <h2>User Date</h2>
                         <button className="expand-more-button" onClick={expandMoreHandler}>
                             <MdExpandMore />
@@ -41,7 +41,7 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange}) => {
                 </ section>
                 :    
                 <section id="data" className='container'>
-                    <div className="container-tittle">    
+                    <div className="data-container-tittle">    
                         <h2>User Date</h2>
                         <button className="expand-more-button" onClick={expandLessHandler}>
                             <MdExpandLess className="expand-more-button-component"/>

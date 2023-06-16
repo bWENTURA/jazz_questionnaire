@@ -42,7 +42,7 @@
 }
 
 .intro-container__question {
-    font-size: 5vw;
+    font-size: min(2.5rem);
     /* font-size: min(300vw, 18px); */
     font-weight: 1000;
     color: var(--c-main);
@@ -50,7 +50,7 @@
 }
 
 .intro-container__button {
-    font-size: 3vw;
+    font-size: 2rem;
     font-weight: 300;
     color: var(--c-secondary);
     margin: auto;
@@ -61,9 +61,22 @@
     border-color: var(--c-main);
     cursor: pointer;
 }
+
 .intro-container__button:hover {
     transition: 0.5s;
     padding: 25px;
+
+}
+
+@media screen and (min-width: 720px) {
+    
+    .intro-container__question {
+        font-size: 5.5rem;
+    }
+    
+    .intro-container__button {
+        font-size: 3.5rem;
+    }
 
 }
 /* 

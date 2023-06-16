@@ -1,4 +1,48 @@
-.lorem {
-    font-size: larger;
-    margin: 80px;
+.container {
+    width: auto;
+    background-color: var(--c-secondary);
+}
+
+.result-container-title {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    height: min(5vh);
+    width: 100%;
+    color: var(--c-secondary);
+    background-color: var(--c-main);
+}
+
+.result-container-title h2 {
+    margin: 0px 30px 0px;
+}
+
+.data-container {
+    display: flex;
+    height: auto;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    background-color: var(--c-secondary);
+}
+
+.data-container p {
+    color: var(--c-dark);
+    margin: 5px;
+    padding: 10px;
+}
+
+.data-container span {
+    color: black;
+}
+
+.data-button {
+    height: 2rem;
+    width: 5rem;
+}
+
+@media screen and (min-width: 720px) {
+    
+
 }

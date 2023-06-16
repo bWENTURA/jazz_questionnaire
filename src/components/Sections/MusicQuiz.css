@@ -3,7 +3,7 @@
     background-color: var(--c-secondary);
 }
 
-.container-title {
+.music-quiz-container-title {
     display:flex;
     justify-content: space-between;
     align-items: center;
@@ -13,7 +13,7 @@
     background-color: var(--c-main);
 }
 
-.container-title h2 {
+.music-quiz-container-title h2 {
     margin: 0px 30px 0px;
 }
 
