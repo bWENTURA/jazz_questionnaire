@@ -12,7 +12,7 @@ const Navbar = (props) => {
     // }
 
     return (
-        <header className="nav">
+        <header id="header" className="nav">
             <h3 className="nav-tittle">Navigation</h3>
             <nav className="nav-list">
                 <a href="/#data" className="nav-list__content">User Data</a><br></br>

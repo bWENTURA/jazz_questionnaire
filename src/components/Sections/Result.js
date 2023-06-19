@@ -21,7 +21,13 @@ const Result = ({name, surname, date, questionQuizScore, audioQuizScore}) => {
     setDisplayScore(Math.floor(((questionQuizScore + audioQuizScore)/14)*100));
     setExpand(false)
   };
-  console.log(displayScore)
+  // console.log(displayScore)
+
+  const refreshPage = () => {
+    window.scrollTo(0,0)
+    window.location.reload();
+    // probably to refactoring
+  }
 
     return (
       <Fragment>
@@ -44,7 +50,7 @@ const Result = ({name, surname, date, questionQuizScore, audioQuizScore}) => {
               <p className="data-surname">Surname: <span>{displaySurname}</span></p>
               <p className="data-date">Birth Date: <span>{displayDate}</span></p>
               <p className="data-result">Score: <span>{displayScore}%</span></p>
-              {/* <button className="data-button" type="submit" onClick={onClickHandler}>Show Result</button> */}
+              <button className="data-button" type="submit" onClick={refreshPage}>Try again!</button>
             </div>
           </section>
         }

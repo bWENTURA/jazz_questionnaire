@@ -1,6 +1,6 @@
 import {React, useRef} from 'react';
 import './Player.css';
-import {BsFillPlayCircleFill, BsFillSkipPlayCircleFill, BsFillPauseCircleFill, BsFillSkipStartCircleFill, BsSkipEndCircleFill, BsFillSkipEndCircleFill} from 'react-icons/bs';
+import {BsFillPlayCircleFill, BsFillPauseCircleFill, BsFillSkipStartCircleFill, BsFillSkipEndCircleFill} from 'react-icons/bs';
 
 const Player = ({songs, audioElem, isPlaying, setIsPlaying, currentSong, setCurrentSong})=> {
 
@@ -59,7 +59,6 @@ const Player = ({songs, audioElem, isPlaying, setIsPlaying, currentSong, setCurr
         <BsFillSkipStartCircleFill className='controls-btn__action' onClick={skipBack}/>
         {!isPlaying ? <BsFillPlayCircleFill className='controls-btn__action pp' onClick={PlayOrPause}/>
         : <BsFillPauseCircleFill className='controls-btn__action pp' onClick={PlayOrPause}/>
-
         }
         <BsFillSkipEndCircleFill className='controls-btn__action' onClick={skipNext}/>        
       </div>
