@@ -12,7 +12,8 @@
 :root {
   --c-main: #351c75;
   /* --c-secondary: #e69138; */
-  --c-secondary: #008a66  ;
+  --c-secondary: #008a66;
+  --c-secondary__shadow: #008a657a;
   --c-dark: #333;
   --c-white: #f8f4e9;
   --c-background: #fce5cd;

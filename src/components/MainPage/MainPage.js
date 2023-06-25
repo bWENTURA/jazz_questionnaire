@@ -28,7 +28,7 @@ const MainPage = (props) => {
                     </a>
                 </div>
                 <div className="intro-container">
-                    <h1 className="intro-container__question animate__swing">Can I be a jazzman?</h1>
+                    <h1 className="intro-container__question animate__animated animate__swing">Can I be a jazzman?</h1>
                     <button className="intro-container__button" onClick={showButtonHandler}>Let's check it!</button>
                 </div>
                 {/* <div className="background-jazz-band-img">
