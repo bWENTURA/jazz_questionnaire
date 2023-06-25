@@ -1,6 +1,6 @@
 .intro {
     position: relative;
-    height: calc(100vh - 2.8rem);
+    height: 100vh;
     width: 100%;
     background-color: var(--c-background);
     display: flex;
@@ -60,6 +60,7 @@
     border: 3px solid;
     border-color: var(--c-main);
     cursor: pointer;
+    transition: 0.5s;
 }
 
 .intro-container__button:hover {

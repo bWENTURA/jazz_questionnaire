@@ -40,7 +40,7 @@ const Navbar = (props) => {
                         <Link>Music Quiz</Link>
                     </li>
                     <li className="nav-list__content">
-                        <Link> Result</Link>
+                        <Link>Result</Link>
                     </li>
                     <li>
                         <button className="nav-btn" onClick={props.onClick}>
