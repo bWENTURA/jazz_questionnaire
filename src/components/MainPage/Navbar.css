@@ -35,6 +35,19 @@ header {
     /* opacity: 0; */
     transition: all 0.3s;
 }
+.nav-list {
+    animation: fade-in 0.5s ease-in;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
 
 .nav-btn {
     border: none;
@@ -50,10 +63,14 @@ header {
 }
 
 .nav-list__content {
+    list-style: none;
     text-decoration: none;
     font-weight: var(--t-thin);
     color: var(--c-dark);
     margin-top: 25px;
+    transition: 0.5s;
+    border-top: 3.5px solid var(--c-background-dark) ;
+    border-bottom: 3.5px solid var(--c-background-dark) ;
 }
 
 /*  

@@ -3,12 +3,12 @@ import Player from "./Player";
 import {MdExpandMore, MdExpandLess} from 'react-icons/md';
 import './MusicQuiz.css';
 // music files import
-import Beirut from "../../audio/Prenzlaurberg.mp3"
-import Moanin from "../../audio/Moanin.mp3";
-import Nardis from '../../audio/Nardis.mp3';
-import Marley from "../../audio/No-Woman-No-Cry.mp3";
-import Mehldau from "../../audio/Paris.mp3";
-import Architekt from "../../audio/The-Architekt.mp3"
+import Beirut from "../../assets/audio/Prenzlaurberg.mp3"
+import Moanin from "../../assets/audio/Moanin.mp3";
+import Nardis from '../../assets/audio/Nardis.mp3';
+import Marley from "../../assets/audio/No-Woman-No-Cry.mp3";
+import Mehldau from "../../assets/audio/Paris.mp3";
+import Architekt from "../../assets/audio/The-Architekt.mp3"
 
 // import songsData from '../../data/songsData.json';
 

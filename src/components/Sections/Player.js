@@ -15,21 +15,26 @@ const Player = ({songs, audioElem, isPlaying, setIsPlaying, currentSong, setCurr
   // function that change duration of song by seek bar
   const checkWidth = (event) => {
     let width = clickRef.current.clientWidth;
-    // it gives 100% width;
+    // it gives 100% width of seekbar (depends of viewport);
     const offset = event.nativeEvent.offsetX;
     // it gives an access to seek bar - where you click, you are on audio timeline;
+    // returns poin on seekbar, where we click
 
     const seekBarProgress = (offset / width) * 100;
+    // count to percentage our click on seekbar
 
     if(audioElem.current.style.width === '0%') {
       audioElem.current.currentTime = width;
     } else {
       audioElem.current.currentTime = (seekBarProgress / 100) * audioElem.current.duration;
     }
+
+    // console.log(currentSong.length) after skipBack/Next returns NaN;
+    // console.log(audioElem.current.duration) this solution works fine
   };
 
   // change audio file to previous one
-  const skipBack = (event) => {
+  const skipBack = () => {
     const index = songs.findIndex(song => song.title === currentSong.title)
     if (index === 0) {
       setCurrentSong(songs[songs.length - 1] )
