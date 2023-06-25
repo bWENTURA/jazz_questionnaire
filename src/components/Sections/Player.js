@@ -4,11 +4,12 @@ import {BsFillPlayCircleFill, BsFillPauseCircleFill, BsFillSkipStartCircleFill, 
 
 const Player = ({songs, audioElem, isPlaying, setIsPlaying, currentSong, setCurrentSong})=> {
 
+  const resetRef = useRef(0);
   const clickRef = useRef();
   
   const PlayOrPause = () => {
-    setIsPlaying(!isPlaying);
-    // zmienia wartość na true
+    setIsPlaying(prev => !prev)
+    // change boolean in isPlaying useState on true
   }
 
   // function that change duration of song by seek bar
@@ -18,12 +19,17 @@ const Player = ({songs, audioElem, isPlaying, setIsPlaying, currentSong, setCurr
     const offset = event.nativeEvent.offsetX;
     // it gives an access to seek bar - where you click, you are on audio timeline;
 
-    const seekBarProgress = offset / width * 100;
-    audioElem.current.currentTime = seekBarProgress / 100 * currentSong.length;
+    const seekBarProgress = (offset / width) * 100;
+
+    if(audioElem.current.style.width === '0%') {
+      audioElem.current.currentTime = width;
+    } else {
+      audioElem.current.currentTime = (seekBarProgress / 100) * audioElem.current.duration;
+    }
   };
 
   // change audio file to previous one
-  const skipBack = () => {
+  const skipBack = (event) => {
     const index = songs.findIndex(song => song.title === currentSong.title)
     if (index === 0) {
       setCurrentSong(songs[songs.length - 1] )
@@ -32,6 +38,8 @@ const Player = ({songs, audioElem, isPlaying, setIsPlaying, currentSong, setCurr
     }
     audioElem.current.currentTime = 0;
     // take changed audio file to beggining
+
+    resetRef.current.style.width = '0%';
   }
 
   // change audio file to next one
@@ -43,6 +51,7 @@ const Player = ({songs, audioElem, isPlaying, setIsPlaying, currentSong, setCurr
       setCurrentSong(songs[index + 1])
     }
     audioElem.current.currentTime = 0;
+    resetRef.current.style.width = '0%';
   }
 
   return (
@@ -52,7 +61,7 @@ const Player = ({songs, audioElem, isPlaying, setIsPlaying, currentSong, setCurr
       </div>
       <div className="navigation">
         <div className="navigation-wrapper" onClick={checkWidth} ref={clickRef}>
-          <div className="seek-bar" style={{width:`${currentSong.progress+"%"}`}}></div>
+          <div className="seek-bar" style={{width:`${currentSong.progress+"%"}`}} ref={resetRef} ></div>
         </div>
       </div>
       <div className="controls-btn">
