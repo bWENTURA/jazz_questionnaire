@@ -1,6 +1,6 @@
 import {React,} from "react";
 // import { Link } from 'react-scroll';
-import {Link} from 'react-scroll';
+import { Link } from 'react-scroll';
 import {FaTimes} from 'react-icons/fa';
 import './Navbar.css';
 

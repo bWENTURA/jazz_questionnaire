@@ -1,5 +1,6 @@
 .container {
     width: auto;
+    /* background color for all containers */
     background-color: var(--c-background);
 }
 
@@ -20,21 +21,28 @@
 .expand-more-button {
     color: var(--c-secondary);
     background: none;
-    border-color: var(--c-secondary);
+    border: none;
+    /* border-color: var(--c-secondary); */
     cursor: pointer;
     margin: 0px 30px 0px;
     /* zoom property isnt perfect to resize this button --> have to change in future! */
     zoom: 150%;
 }
 
+.form-instruction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .form {
     display: grid;
-    grid-template-columns: 1fr 4fr 3fr;
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: 2fr 4fr 2fr;
+    grid-template-rows: repeat(3, 1fr);
     /* without button below */
     /* grid-template-rows: repeat(3, 1fr); */
-    grid-column-gap: 6px;
-    grid-row-gap: 5px;
+    /* grid-column-gap: 6px;
+    grid-row-gap: 5px; */
 }
 
 .form div {
@@ -54,6 +62,7 @@
     border-radius: 13px;
     border: 3px solid var(--c-main);
     background-color: var(--c-background-input);
+    width: 100%;
 }
 
 .form input:focus {
@@ -63,10 +72,14 @@
     color: white;
 }
 
-.form button {
-    grid-area: 4 / 3 / 5 / 5;
-    color: white;
-    background-color: var(--c-main);
+.button-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.button-container button {
+    width: 100px;
 }
 
 /* 
@@ -83,7 +96,6 @@ LARGE SCREEN
     justify-content: center;
     align-items: center;
     align-content: center;
-    background-color: var(--c-secondary);
 }
 
 }

@@ -47,21 +47,26 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange}) => {
                             <MdExpandLess className="expand-more-button-component"/>
                         </button>
                     </div>
-                <form className="form">
-                    <div className="form-name">
-                        <label>Name</label>
-                        <input type="text" onChange={nameChangeHandler} />
+                    <div className="form-instruction">
+                        <h3 className="form-instruction__item">Please, enter your data!</h3>
                     </div>
-                    <div className="form-surname">
-                        <label>Surname</label>
-                        <input type="text" onChange={surnameChangeHandler} />
+                    <form className="form">
+                        <div className="form-name">
+                            <label>Name</label>
+                            <input type="text" onChange={nameChangeHandler} />
+                        </div>
+                        <div className="form-surname">
+                            <label>Surname</label>
+                            <input type="text" onChange={surnameChangeHandler} />
+                        </div>
+                        <div className='form-date'>
+                            <label>Birth Date</label>
+                            <input type="date" min="1940-01-01" step="2023-05-22" onChange={dateChangeHandler}/>
+                        </div>
+                    </form>
+                    <div className="button-container">
+                        <button>Enter Data!</button>
                     </div>
-                    <div className='form-date'>
-                        <label>Birth Date</label>
-                        <input type="date" min="1940-01-01" step="2023-05-22" onChange={dateChangeHandler}/>
-                    </div>
-                    {/* <button type="submit" onClick={onClickHandler}>Submit checker only!</button> */}
-                </form>
                 </section>
                 }
         </ Fragment>

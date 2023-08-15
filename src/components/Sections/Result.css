@@ -1,6 +1,5 @@
 .container {
     width: auto;
-    background-color: var(--c-secondary);
 }
 
 .result-container-title {
@@ -24,7 +23,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-content: center;
-    background-color: var(--c-secondary);
+    background-color: var(--c-background);
 }
 
 .data-container p {

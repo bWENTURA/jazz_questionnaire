@@ -4,7 +4,7 @@
     padding: 1rem;
     border: 1px solid rgb(141, 141, 141);
     border-radius: 10px;
-    color: var(--c-secondary);
+    color: var(--c-background);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,7 +23,7 @@
 
 .navigation-wrapper {
     min-width: 100%;
-    background-color: var(--c-secondary);
+    background-color: var(--c-background);
     height: 6px;
     border-radius: 30px;
     cursor: pointer;
