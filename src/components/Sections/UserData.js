@@ -42,7 +42,7 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange}) => {
                 :    
                 <section id="data" className='container'>
                     <div className="data-container-tittle">    
-                        <h2>User Date</h2>
+                        <h2>User Data</h2>
                         <button className="expand-more-button" onClick={expandLessHandler}>
                             <MdExpandLess className="expand-more-button-component"/>
                         </button>
@@ -64,7 +64,7 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange}) => {
                             <input type="date" min="1940-01-01" step="2023-05-22" onChange={dateChangeHandler}/>
                         </div>
                     </form>
-                    <div className="button-container">
+                    <div className="button-container__data">
                         <button>Enter Data!</button>
                     </div>
                 </section>

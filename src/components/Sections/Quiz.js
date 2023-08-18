@@ -108,6 +108,7 @@ const Quiz = ({onQuestionChange, onAnswerCheck, onCurrentQuestion, onShowScore})
                         </button>
                     </div>
                     {onShowScore ?
+                    <Fragment>
                         <form className="form-container" >
                             <div className="question">
                                 <h3 className="question-title">{questions[onCurrentQuestion].text}</h3>
@@ -132,10 +133,14 @@ const Quiz = ({onQuestionChange, onAnswerCheck, onCurrentQuestion, onShowScore})
                                         )
                                     })}
                             </div>
-                            <div className="question-button">
+                            {/* <div className="question-button">
                                 <button type="submit" onClick={onQuestionChange}>Next question please!</button>
-                            </div>
+                            </div> */}
                         </form>
+                        <div className="button-container">
+                            <button type="submit" onClick={onQuestionChange}>Enter Data!</button>
+                        </div>
+                    </Fragment>
                     :
                         <form className="form-container false" >
                             <div className="question">

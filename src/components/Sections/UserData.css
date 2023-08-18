@@ -72,14 +72,24 @@
     color: white;
 }
 
-.button-container {
+.button-container__data {
     display: flex;
     justify-content: center;
     padding: 10px;
 }
 
-.button-container button {
-    width: 100px;
+.button-container__data button {
+    padding: 5px;
+    color: var(--c-white);
+    background-color: var(--c-main);
+    width: max(46%, 120px);
+    border-style: none;
+    border-radius: 20px 20px 20px 20px;
+    transition: width 0.5s ease;
+}
+
+.button-container__data button:hover {
+    width: max(55%, 170px);
 }
 
 /* 
@@ -88,14 +98,21 @@ LARGE SCREEN
 
 @media screen and (min-width: 720px)  {
 
-.form {
-    display: flex;
-    height: 20vh;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-}
+    .form {
+        display: flex;
+        height: 9vh;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
 
+    .button-container__data button {
+        width: 230px;
+    }
+
+    .button-container__data button:hover {
+        width: 290px;
+    }
 }

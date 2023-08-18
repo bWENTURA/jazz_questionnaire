@@ -1,4 +1,4 @@
-import {React, Fragment, useState} from 'react';
+import {React, Fragment, useState, useEffect} from 'react';
 // import {useEffect} from 'react';
 import 'animate.css';
 import './App.css';
@@ -104,6 +104,14 @@ const App = () => {
       });
       return setAudioQuizScore(sum);
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (name.trim() !== '') {
+        document.title = `Jazz Questionnaire by ${name}`;
+      }
+    }, 3000)
+  }, [name]);
 
   return (
     <Fragment>

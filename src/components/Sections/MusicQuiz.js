@@ -138,8 +138,11 @@ const MusicQuiz = ({onCheckHandler, onSumHandler, onSongData}) => {
                                     </label>
                                 </ul>
                             ))}
-                            <button onClick={onSumHandler}>Submit checker only!</button>
+                            {/* <button onClick={onSumHandler}>Submit checker only!</button> */}
                         </div>
+                    </div>
+                    <div onClick={onSumHandler} className="button-container">
+                        <button>Enter My Answears!</button>
                     </div>
                 </section>}
         </Fragment>
