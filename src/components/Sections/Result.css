@@ -36,12 +36,38 @@
     color: black;
 }
 
-.data-button {
-    height: 2rem;
-    width: 5rem;
+.button-container__result {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.button-container__result button {
+    padding: 5px;
+    color: var(--c-white);
+    background-color: var(--c-main);
+    width: max(46%, 120px);
+    border-style: none;
+    border-radius: 20px 20px 20px 20px;
+    transition: width 0.5s ease;
+}
+
+.button-container__result button:hover {
+    width: max(55%, 170px);
+}
+
+.button-container__result button:active {
+    opacity: 0.8;
 }
 
 @media screen and (min-width: 720px) {
     
+    .button-container__result button {
+        width: 230px;
+    }
+
+    .button-container__result button:hover {
+        width: 290px;
+    }
 
 }

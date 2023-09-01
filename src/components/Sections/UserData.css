@@ -92,6 +92,11 @@
     width: max(55%, 170px);
 }
 
+.button-container__data button:active {
+    opacity: 0.8;
+}
+
+
 /* 
 LARGE SCREEN
 */

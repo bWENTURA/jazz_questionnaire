@@ -39,6 +39,30 @@ h2 {
     margin: auto;
 }
 
+.button-container__player {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.button-container__player button {
+    padding: 5px;
+    color: var(--c-white);
+    background-color: var(--c-main);
+    width: max(46%, 120px);
+    border-style: none;
+    border-radius: 20px 20px 20px 20px;
+    transition: width 0.5s ease;
+}
+
+.button-container__player button:hover {
+    width: max(55%, 170px);
+}
+
+.button-container__player button:active {
+    opacity: 0.8;
+}
+
 /* .anwsears-list input {
     stylize this element
 } */
@@ -47,8 +71,17 @@ LARGE SCREEN
 */
 
 @media screen and (min-width: 720px) {
+
     .answears-container {
         grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    .button-container__player button {
+        width: 230px;
+    }
+
+    .button-container__player button:hover {
+        width: 290px;
     }
 
 }

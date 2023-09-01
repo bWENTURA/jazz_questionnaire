@@ -141,7 +141,7 @@ const MusicQuiz = ({onCheckHandler, onSumHandler, onSongData}) => {
                             {/* <button onClick={onSumHandler}>Submit checker only!</button> */}
                         </div>
                     </div>
-                    <div onClick={onSumHandler} className="button-container">
+                    <div onClick={onSumHandler} className="button-container__player">
                         <button>Enter My Answears!</button>
                     </div>
                 </section>}

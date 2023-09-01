@@ -20,6 +20,9 @@ const Result = ({name, surname, date, questionQuizScore, audioQuizScore}) => {
     setDisplayDate(date);
     setDisplayScore(Math.floor(((questionQuizScore + audioQuizScore)/14)*100));
     setExpand(false)
+    setTimeout(() => {
+      window.scrollTo(0, document.body.scrollHeight)
+    }, 300)
   };
   // console.log(displayScore)
 
@@ -36,7 +39,7 @@ const Result = ({name, surname, date, questionQuizScore, audioQuizScore}) => {
             <div className="result-container-title">    
                 <h2>Result</h2>
             </div>
-            <div className="data-container">
+            <div className="button-container__result">
               <button type="submit" onClick={onClickHandler}>Show Result</button> 
             </div>
           </section>
@@ -50,7 +53,9 @@ const Result = ({name, surname, date, questionQuizScore, audioQuizScore}) => {
               <p className="data-surname">Surname: <span>{displaySurname}</span></p>
               <p className="data-date">Birth Date: <span>{displayDate}</span></p>
               <p className="data-result">Score: <span>{displayScore}%</span></p>
-              <button className="data-button" type="submit" onClick={refreshPage}>Try again!</button>
+              <div className="button-container__result">
+                <button className="data-button" type="submit" onClick={refreshPage}>Try again!</button>
+              </div>
             </div>
           </section>
         }

@@ -137,7 +137,7 @@ const Quiz = ({onQuestionChange, onAnswerCheck, onCurrentQuestion, onShowScore})
                                 <button type="submit" onClick={onQuestionChange}>Next question please!</button>
                             </div> */}
                         </form>
-                        <div className="button-container">
+                        <div className="button-container__quiz">
                             <button type="submit" onClick={onQuestionChange}>Enter Data!</button>
                         </div>
                     </Fragment>
