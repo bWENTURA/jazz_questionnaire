@@ -12,6 +12,7 @@ import songsData from './data/songsData.json'
 
 const App = () => {
   // below hooks for UserData component
+  // const [name, setName] = useState(localStorage.getItem('name'));
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [date, setDate] = useState('');
@@ -29,12 +30,15 @@ const App = () => {
 
   const handleNameChange = (value) => {
     setName(value);
+    localStorage.setItem('name', value)
   };
   const handleSurnameChange = (value) => {
     setSurname(value);
+    localStorage.setItem('surname', value)
   };
   const handleDateChange = (value) => {
     setDate(value)
+    localStorage.setItem('date', date)
   };
 
   const answerHandler = (event) => {

@@ -63,11 +63,14 @@
     border: 3px solid var(--c-main);
     background-color: var(--c-background-input);
     width: 100%;
+    transition: 600ms;
 }
 
 .form input:focus {
-    border: none;
-    padding: 5px;
+    /* maybe I should delete padding changes with this transition */
+    outline: none;
+    border-radius: 5px;
+    /* padding: 5px; */
     background-color: var(--c-main);
     color: white;
 }
