@@ -37,6 +37,7 @@ h2 {
 .anwsears-list{
     grid-area: 1 / 2 / 2 / 3;
     margin: auto;
+    color: var(--c-dark);
 }
 
 .button-container__player {

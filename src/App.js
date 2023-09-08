@@ -27,6 +27,8 @@ const App = () => {
   // hooks for Music Quiz
   const [checkValue, setCheckValue] = useState(songsData)
   const [audioQuizScore, setAudioQuizScore] = useState('');
+  // LIGHT / DARK MODE
+  const [isLightMode, setIsLightMode] = useState(true);
 
   const handleNameChange = (value) => {
     setName(value);
@@ -117,9 +119,40 @@ const App = () => {
     }, 3000)
   }, [name]);
 
+ // DARK MODE 
+
+  // Funkcja do zmiany trybu kolorystycznego
+  const toggleDarkMode = () => {
+    setIsLightMode(!isLightMode); // Odwracamy aktualny tryb
+  };
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isLightMode) {
+      root.style.setProperty('--c-main', '#2779a7');
+      root.style.setProperty('--c-secondary', '#008a66');
+      root.style.setProperty('--c-secondary__shadow', '#008a657a');
+      root.style.setProperty('--c-dark', '#333');
+      root.style.setProperty('--c-white', '#f8f4e9');
+      root.style.setProperty('--c-background', '#efe2ba');
+      root.style.setProperty('--c-background-dark', '#f7d7b5');
+      root.style.setProperty('--c-background-input', 'rgba(253, 253, 253, 0.685)');
+    } else {
+      root.style.setProperty('--c-main', '#f8f4e9');
+      root.style.setProperty('--c-secondary', '#f8f4e9');
+      root.style.setProperty('--c-secondary__shadow', '#333');
+      root.style.setProperty('--c-dark', '#f8f4e9');
+      root.style.setProperty('--c-white', '#333');
+      root.style.setProperty('--c-background', '#333');
+      root.style.setProperty('--c-background-dark', '#f8f4e9');
+      root.style.setProperty('--c-background-input', '#f8f4e9');
+    }
+  }, [isLightMode]);
+
   return (
     <Fragment>
-      <MainPage />
+    <div className={`App ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
+      <MainPage onClick={toggleDarkMode}/>
       <UserData
         onNameChange={handleNameChange}
         onSurnameChange={handleSurnameChange}
@@ -143,6 +176,7 @@ const App = () => {
         questionQuizScore={quizScore}
         audioQuizScore={audioQuizScore}
         />
+    </div>    
     </Fragment>
     );
   };

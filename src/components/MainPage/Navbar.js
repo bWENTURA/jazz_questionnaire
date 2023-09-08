@@ -28,6 +28,9 @@ const Navbar = (props) => {
                             <FaTimes />
                         </button>
                     </li>
+                    <li>
+                        <button className="mode-btn" onClick={props.modeHandler}> DARK MODE </button>
+                    </li>
                 </ul>
             </nav>
         </header>

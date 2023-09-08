@@ -33,7 +33,7 @@
 }
 
 .data-container span {
-    color: black;
+    color: var(--c-dark);
 }
 
 .button-container__result {

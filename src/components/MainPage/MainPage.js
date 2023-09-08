@@ -1,4 +1,4 @@
-import {React, Fragment, useState} from "react";
+import {React, Fragment, useState, useEffect} from "react";
 import './MainPage.css';
 import Navbar from "./Navbar";
 import 'animate.css';
@@ -8,7 +8,9 @@ import GithubIcon from "../../assets/icons/git-hub-icon.png"
 
 const MainPage = (props) => {
 
-    const [show, setShow] = useState(false)
+    const [show, setShow] = useState(false);
+      // LIGHT / DARK MODE
+    const [isLightMode, setIsLightMode] = useState(true);
 
     const closeButtonHandler = () => {
         setShow(false)
@@ -18,10 +20,13 @@ const MainPage = (props) => {
         setShow(true)
     };
 
+
     return (
         <Fragment>
             <section className="intro">
-                {show ? <Navbar onClick={closeButtonHandler}></Navbar> : '' }
+                {show ? <Navbar onClick={closeButtonHandler} modeHandler={props.onClick}></Navbar> 
+                : 
+                '' }
                 <div className="corner-github">
                     <a href="https://github.com/PIvSky" className="corner-github__icon">
                         <img alt="remote-repo-icon" src={GithubIcon} className="corner-github__iconPic"/>
