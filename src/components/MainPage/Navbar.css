@@ -25,7 +25,7 @@ header {
     -moz-box-shadow: -13px 0px 31px -23px rgba(39, 121, 167, 1);
     box-shadow: -13px 0px 31px -23px rgba(39, 121, 167, 1);
     transition: all ease-in-out;
-    transition-delay: 600ms;
+    /* transition-delay: 600ms; */
 }
 
 .nav-list {
@@ -54,23 +54,6 @@ li {
     cursor: pointer;
 }
 
-.nav-btn {
-    padding-top: 30px;
-    padding-left: 20px;
-    border: none;
-    background: transparent;
-    margin-top: 25px;
-    /* visibility: hidden; */
-    transition: 0.8s;
-    color: var(--c-dark);
-}
-
-.nav-btn:hover {
-    transition: 0.8s;
-    transform: scale(2);
-    padding: 20px;
-}
-
 .nav-tittle {
     font-weight: var(--t-fat);
     color: var(--c-dark);
@@ -86,9 +69,73 @@ li {
     border-bottom: 3.5px solid var(--c-background) ;
 }
 
+.nav-list__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: none;
+    background: transparent;
+    margin-top: 25px;
+    color: var(--c-dark);
+    transition: all ease-in-out;
+}
+
+.nav-list__btn:hover {
+    transition: 0.8s;
+    transform: scale(1.5);
+    padding: 20px;
+}
+
+.nav-list__btn:active {
+    opacity: 0.4;
+}
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: var(--c-dark);
+}
+
+.popup-text {
+    position: absolute;
+    font-size: 11px;
+    padding: 5px;
+    border: 1px solid var(--c-main);
+    border-radius: 25%;
+    background-color: var(--c-main);
+    color: var(--c-white);
+    transition: 2s;
+}
+
+/* dark mode popup - to do in a future */
+
+
 /*  
-    ANIMATION 
+    ANIMATIONs 
 */
+
+/* pulse animation */
+.material-symbols-sharp {
+    animation: pulse 1s infinite;
+}
+
+.dark-mode {
+    animation: none;
+}
+
+@keyframes pulse {
+    0% {
+      transform: scale(1); /* Skalowanie początkowe */
+    }
+    50% {
+      transform: scale(1.2); /* Skalowanie w połowie animacji */
+    }
+    100% {
+      transform: scale(1); /* Skalowanie końcowe */
+    }
+}
+
 .nav-list__content:hover {
     transition: 0.5s;
     border-top: 3.5px solid var(--c-main) ;
@@ -131,9 +178,8 @@ li {
         align-items: center;
     }
 
-    .nav-btn {
-        padding: 0px;
-        margin: 20px;
+    .nav-list__btn {
+        margin-top: 0px;
     }
 
     .nav-list__content{
@@ -147,6 +193,7 @@ li {
 */
 
 @media screen and (min-width: 1000px) {
+
     .nav-list__content{
         margin: 50px;
     }

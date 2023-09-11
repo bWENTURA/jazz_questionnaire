@@ -1,4 +1,4 @@
-import {React, Fragment, useState, useEffect} from "react";
+import {React, Fragment, useState} from "react";
 import './MainPage.css';
 import Navbar from "./Navbar";
 import 'animate.css';
@@ -6,12 +6,13 @@ import 'animate.css';
 import GithubIcon from "../../assets/icons/git-hub-icon.png"
 // import BgImgJazz from "../graphics/background-jazz-band.png"
 
-const MainPage = (props) => {
+const MainPage = ({onModeHandler}) => {
 
     const [show, setShow] = useState(false);
-      // LIGHT / DARK MODE
-    const [isLightMode, setIsLightMode] = useState(true);
+    const [mode, setMode] = useState(true);
+    const [isPopupVisible, setPopupVisible] = useState(false)
 
+    // manipulating of section's display
     const closeButtonHandler = () => {
         setShow(false)
     };
@@ -20,11 +21,38 @@ const MainPage = (props) => {
         setShow(true)
     };
 
+    // manipulating 
+    const darkMode = () => {
+        setMode(false)
+    } 
+
+    const lightMode = () => {
+        setMode(true)
+    } 
+
+    // dark mode popup
+    const handleMouseEnter = () => {
+        setPopupVisible(true);
+    };
+    
+    const handleMouseLeave = () => {
+        setPopupVisible(false);
+    };
 
     return (
         <Fragment>
             <section className="intro">
-                {show ? <Navbar onClick={closeButtonHandler} modeHandler={props.onClick}></Navbar> 
+                {show ? <Navbar 
+                            onClose={closeButtonHandler} 
+                            modeHandler={onModeHandler} 
+                            mode={mode} 
+                            darkMode={darkMode} 
+                            lightMode={lightMode}
+                            isPopupVisible={isPopupVisible}
+                            onEnter={handleMouseEnter}
+                            onLeave={handleMouseLeave}
+                        >
+                        </Navbar> 
                 : 
                 '' }
                 <div className="corner-github">

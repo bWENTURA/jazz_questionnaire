@@ -111,6 +111,7 @@ const App = () => {
       return setAudioQuizScore(sum);
   };
 
+  // manipulating of documen.title
   useEffect(() => {
     setTimeout(() => {
       if (name.trim() !== '') {
@@ -123,7 +124,7 @@ const App = () => {
 
   // Funkcja do zmiany trybu kolorystycznego
   const toggleDarkMode = () => {
-    setIsLightMode(!isLightMode); // Odwracamy aktualny tryb
+    setIsLightMode(!isLightMode);
   };
 
   useEffect(() => {
@@ -152,7 +153,7 @@ const App = () => {
   return (
     <Fragment>
     <div className={`App ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
-      <MainPage onClick={toggleDarkMode}/>
+      <MainPage onModeHandler={toggleDarkMode}/>
       <UserData
         onNameChange={handleNameChange}
         onSurnameChange={handleSurnameChange}
