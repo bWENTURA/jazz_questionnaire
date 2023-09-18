@@ -1,4 +1,4 @@
-import {Fragment, React, useState}from "react";
+import {Fragment, React, useEffect, useState}from "react";
 import {MdExpandMore, MdExpandLess} from 'react-icons/md';
 import './UserData.css';
 
@@ -7,6 +7,7 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, selectedGender, 
     const [expand, setExpand] = useState(false);
     const [job, setJob] = useState(true);
     const [musician, setMusician] = useState(true);
+    const [avatar, setAvatar] = useState([])
 
     // passing datas in form
     const nameChangeHandler = (event) => {
@@ -63,6 +64,41 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, selectedGender, 
         })
     }
 
+    // avatars fetching
+    const avatarNames = ['Snuggles', 'Zoe', 'Mittens']
+    const imageUrl = 'https://api.dicebear.com/7.x/bottts/svg?seed=';
+
+    useEffect(() => {
+        const fetchAvatar = async () => {
+            try {
+                const avatarPromise = avatarNames.map(name => {
+                    return fetch(`${imageUrl}${name}`)
+                        .then(response => response.text())
+                        .catch(err => console.log(err))
+            })
+                // we wait for completed all API fetching
+                const avatarAll = await Promise.all(avatarPromise);
+                setAvatar(avatarAll);
+            } catch (error) {
+                console.error('Error fetching avatars:', error);
+            }
+
+        }
+        fetchAvatar()
+    });
+
+    // const handleAvatarClick = (event) => {
+    //     // Handle the avatar click based on the index
+    //     event.preventDefault()
+    //     console.log('Clicked')
+    //     setSelectedAvatar(false)
+    //   };
+
+
+  const handleAvatarClick = (event) => {
+    event.preventDefault();
+  };
+
     return (
         <Fragment>
             {expand ? 
@@ -107,12 +143,26 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, selectedGender, 
                                     <option value="Other">Other</option>
                                 </select>
                             </div>
-                            {/* <div className="form-avatar">
-                                <div>
+                            <div className="form-avatar">
                                     <label>Choose your avatar!</label>
-                                    <img></img>
-                                </div>
-                            </div> */}
+                                    <div className="form-avatar__items">
+                                        {avatar.map((svg, index) => (
+                                            <button 
+                                                className='form-avatar__button' 
+                                                onClick={handleAvatarClick} 
+                                                key={index}
+                                                // id={`avatar-${index + 1}`} 
+                                            >
+                                                <div 
+                                                    className="form-avatar__img"
+                                                    style={{backgroundImage: `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`}}
+                                                    alt={`Avatar ${index}`}
+                                                >
+                                                </div>
+                                            </button>
+                                        ))}
+                                    </div>
+                            </div>
                         </div>
                         <div className="form-row-two">
                             <div className="form-job">
