@@ -35,7 +35,7 @@ const Navbar = ({onClose, modeHandler, mode, darkMode, lightMode, isPopupVisible
                                 <span 
                                     className="material-symbols-sharp light-mode"
                                     onClick={() => {modeHandler(); darkMode()}} >dark_mode</span>
-                                {isPopupVisible && <p className="popup-text">Take care of eyes!</p>}
+                                {isPopupVisible && <p className="popup-text">Take care of your eyes!</p>}
                             </div>
                             :
                             <span onClick={() => {modeHandler(); lightMode()}} className="material-symbols-sharp dark-mode">light_mode</span>

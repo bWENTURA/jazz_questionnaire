@@ -19,8 +19,6 @@
 .form-container {
     display: grid;
     grid-template-columns: 2fr 4fr 2fr;
-    /* without button delete this rows template below */
-    grid-template-rows: 4fr 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     }

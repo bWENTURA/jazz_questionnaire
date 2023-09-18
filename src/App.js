@@ -16,6 +16,8 @@ const App = () => {
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [date, setDate] = useState('');
+  const [selectedGender, setSelectedGender] = useState('')
+  const [selectedJob, setSelectedJob] = useState('')
   // below hooks for Quiz component
   const [showScore, setShowScore] = useState(true);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -30,19 +32,35 @@ const App = () => {
   // LIGHT / DARK MODE
   const [isLightMode, setIsLightMode] = useState(true);
 
+  /*
+      USER DATA
+  */ 
+
   const handleNameChange = (value) => {
     setName(value);
     localStorage.setItem('name', value)
   };
+
   const handleSurnameChange = (value) => {
     setSurname(value);
     localStorage.setItem('surname', value)
   };
+
   const handleDateChange = (value) => {
     setDate(value)
     localStorage.setItem('date', date)
   };
 
+  const handleGenderSelection = (value) => {
+    setSelectedGender(value)
+  }
+
+  const handleJobSelection = (value) => {
+    setSelectedJob(value)
+  }
+  /*
+      QUIZ
+  */
   const answerHandler = (event) => {
     setSelectedInput(event.target.value);
     // jeżeli masz zmienną, pod którą jest wartość liczbowa 0 (lub chyba też ujemne; mniej bądź równe 0) to boolean będzie false!!!
@@ -90,7 +108,11 @@ const App = () => {
 
   // setCheckValue returns new object, with changed (if checkbox.title === checkboxTitle)
   // value of chacked on true and rest of keys with no changes(spread operator);
-  //  else, return not-changed object; 
+  //  else, return not-changed object;
+  
+  /*
+      MUSIC QUIZ
+  */
   const checkHandler = (e) => {
     const checkboxTitle = e.target.title;
     setCheckValue((prevValues) => 
@@ -120,9 +142,11 @@ const App = () => {
     }, 3000)
   }, [name]);
 
- // DARK MODE 
-
-  // Funkcja do zmiany trybu kolorystycznego
+  /*
+      DARK MODE 
+  */
+  
+  // function changing the set of colors
   const toggleDarkMode = () => {
     setIsLightMode(!isLightMode);
   };
@@ -158,6 +182,10 @@ const App = () => {
         onNameChange={handleNameChange}
         onSurnameChange={handleSurnameChange}
         onDateChange={handleDateChange}
+        selectedGender={selectedGender}
+        onGenderChange={handleGenderSelection}
+        selectedJob={selectedJob}
+        onJobChange={handleJobSelection}
       />
       <Quiz 
         onQuestionChange={nextQuestionHandler}
@@ -174,6 +202,8 @@ const App = () => {
         name={name}
         surname={surname}
         date={date}
+        gender={selectedGender}
+        job={selectedJob}
         questionQuizScore={quizScore}
         audioQuizScore={audioQuizScore}
         />

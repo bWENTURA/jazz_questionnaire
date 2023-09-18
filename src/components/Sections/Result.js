@@ -1,12 +1,14 @@
 import {React, Fragment, useState} from "react";
 import './Result.css';
 
-const Result = ({name, surname, date, questionQuizScore, audioQuizScore}) => {
+const Result = ({name, surname, date, gender, job, questionQuizScore, audioQuizScore}) => {
 
   const [expand, setExpand] = useState(true);
   const [displayName, setDisplayName] = useState(name);
   const [displaySurname, setDisplaySurname] = useState(surname);
   const [displayDate, setDisplayDate] = useState(date);
+  const [displayGender, setDisplayGender] = useState(gender)
+  const [displayJob, setDisplayJob] = useState(job)
   // const [questionQuizScore, setQuestionQuizScore] = useState(questionQuizScore);
   // const [audioQuizScore, setAudioQuizScore] = useState(audioQuizScore)
   const [displayScore, setDisplayScore] = useState(0)
@@ -18,6 +20,8 @@ const Result = ({name, surname, date, questionQuizScore, audioQuizScore}) => {
     setDisplayName(name);
     setDisplaySurname(surname);
     setDisplayDate(date);
+    setDisplayGender(gender)
+    setDisplayJob(job)
     setDisplayScore(Math.floor(((questionQuizScore + audioQuizScore)/14)*100));
     setExpand(false)
     setTimeout(() => {
@@ -52,6 +56,8 @@ const Result = ({name, surname, date, questionQuizScore, audioQuizScore}) => {
               <p className="data-name">Name: <span>{displayName}</span></p>
               <p className="data-surname">Surname: <span>{displaySurname}</span></p>
               <p className="data-date">Birth Date: <span>{displayDate}</span></p>
+              <p className="data-gender">Gender: <span>{displayGender}</span></p>
+              <p className="data-job">Job: <span>{displayJob}</span></p>
               <p className="data-result">Score: <span>{displayScore}%</span></p>
               <div className="button-container__result">
                 <button className="data-button" type="submit" onClick={refreshPage}>Try again!</button>
