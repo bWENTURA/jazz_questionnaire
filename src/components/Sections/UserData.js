@@ -8,6 +8,7 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, selectedGender, 
     const [job, setJob] = useState(true);
     const [musician, setMusician] = useState(true);
     const [avatar, setAvatar] = useState([])
+    const [selectedAvatar, setSelectedAvatar] = useState(null)
 
     // passing datas in form
     const nameChangeHandler = (event) => {
@@ -84,19 +85,24 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, selectedGender, 
             }
 
         }
+        console.log("infinity loop")
         fetchAvatar()
-    });
+    }, []);
 
-    // const handleAvatarClick = (event) => {
-    //     // Handle the avatar click based on the index
-    //     event.preventDefault()
-    //     console.log('Clicked')
-    //     setSelectedAvatar(false)
-    //   };
+    // useEffect(() => {
+    //     const handleAvatarClick = (event, index) => {
+    //         // Handle the avatar click based on the index
+    //         event.preventDefault()
+    //         console.log(event.target)
+    //         setSelectedAvatar(index)
+    //       };
+    // }, [handleAvatarClick, setSelectedAvatar])
+    
 
 
-  const handleAvatarClick = (event) => {
+  const handleAvatarClick = (event, index) => {
     event.preventDefault();
+    setSelectedAvatar(index)
   };
 
     return (
@@ -144,24 +150,25 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, selectedGender, 
                                 </select>
                             </div>
                             <div className="form-avatar">
-                                    <label>Choose your avatar!</label>
-                                    <div className="form-avatar__items">
-                                        {avatar.map((svg, index) => (
-                                            <button 
-                                                className='form-avatar__button' 
-                                                onClick={handleAvatarClick} 
-                                                key={index}
-                                                // id={`avatar-${index + 1}`} 
+                                <label>Choose your avatar!</label>
+                                <div className="form-avatar__items">
+                                    {avatar.map((svg, index) => (
+                                        <button 
+                                            className={`form-avatar__button ${selectedAvatar === index ? 'selected' : ''}`}
+                                            onClick={(event) => handleAvatarClick(event, index)} 
+                                            // onClick={handleAvatarClick}
+                                            key={index}
+                                            // id={`avatar-${index + 1}`} 
+                                        >
+                                            <div 
+                                                className="form-avatar__img"
+                                                style={{backgroundImage: `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`}}
+                                                alt={`Avatar ${index}`}
                                             >
-                                                <div 
-                                                    className="form-avatar__img"
-                                                    style={{backgroundImage: `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`}}
-                                                    alt={`Avatar ${index}`}
-                                                >
-                                                </div>
-                                            </button>
-                                        ))}
-                                    </div>
+                                            </div>
+                                        </button>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                         <div className="form-row-two">

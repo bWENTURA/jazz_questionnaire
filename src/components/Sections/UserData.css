@@ -153,6 +153,7 @@
     border: 3px solid var(--c-main);
     border-radius: 25px;
     display: flex;
+    transition: 0.8s;
 }
 
 .form-avatar__button:active {
@@ -165,6 +166,15 @@
     height: 40px;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.form-avatar__button.selected {
+    transform: scale(1.2);
+}
+
+/* for the future: I'd like to hide not-selected avatars --> how do it?  */
+.form-avatar__button:not(.selected) {
+    opacity: 0.8;;
 }
 
 .button-container__data {
