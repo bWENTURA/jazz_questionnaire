@@ -1,14 +1,17 @@
 import {React, Fragment, useState} from "react";
 import './Result.css';
 
-const Result = ({name, surname, date, gender, job, questionQuizScore, audioQuizScore}) => {
+const Result = ({name, surname, date, gender, email, phone, country, job, questionQuizScore, audioQuizScore}) => {
 
   const [expand, setExpand] = useState(true);
   const [displayName, setDisplayName] = useState(name);
   const [displaySurname, setDisplaySurname] = useState(surname);
   const [displayDate, setDisplayDate] = useState(date);
-  const [displayGender, setDisplayGender] = useState(gender)
-  const [displayJob, setDisplayJob] = useState(job)
+  const [displayGender, setDisplayGender] = useState(gender);
+  const [displayEmail, setDisplayEmail] = useState(email);
+  const [displayPhone, setDisplayPhone] = useState(phone);
+  const [displayJob, setDisplayJob] = useState(job);
+  const [displayCountry, setDisplayCountry] = useState(country);
   // const [questionQuizScore, setQuestionQuizScore] = useState(questionQuizScore);
   // const [audioQuizScore, setAudioQuizScore] = useState(audioQuizScore)
   const [displayScore, setDisplayScore] = useState(0)
@@ -20,10 +23,13 @@ const Result = ({name, surname, date, gender, job, questionQuizScore, audioQuizS
     setDisplayName(name);
     setDisplaySurname(surname);
     setDisplayDate(date);
-    setDisplayGender(gender)
-    setDisplayJob(job)
+    setDisplayGender(gender);
+    setDisplayEmail(email);
+    setDisplayPhone(phone);
+    setDisplayJob(job);
+    setDisplayCountry(country)
     setDisplayScore(Math.floor(((questionQuizScore + audioQuizScore)/14)*100));
-    setExpand(false)
+    setExpand(false);
     setTimeout(() => {
       window.scrollTo(0, document.body.scrollHeight)
     }, 300)
@@ -32,8 +38,12 @@ const Result = ({name, surname, date, gender, job, questionQuizScore, audioQuizS
 
   const refreshPage = () => {
     window.scrollTo(0,0)
-    window.location.reload();
-    // probably to refactoring
+    setTimeout(() => {
+      window.location.reload();
+
+    }, 200)
+    // probably to refactoring - bad behaviour of reload(); after reload not positioned on the top
+    
   }
 
     return (
@@ -57,6 +67,9 @@ const Result = ({name, surname, date, gender, job, questionQuizScore, audioQuizS
               <p className="data-surname">Surname: <span>{displaySurname}</span></p>
               <p className="data-date">Birth Date: <span>{displayDate}</span></p>
               <p className="data-gender">Gender: <span>{displayGender}</span></p>
+              <p className="data-email">Email: <span>{displayEmail}</span></p>
+              <p className="data-phone">Phone Number: <span>{displayPhone}</span></p>
+              <p className="data-country">Country: <span>{displayCountry}</span></p>
               <p className="data-job">Job: <span>{displayJob}</span></p>
               <p className="data-result">Score: <span>{displayScore}%</span></p>
               <div className="button-container__result">

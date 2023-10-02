@@ -2,13 +2,14 @@ import {Fragment, React, useEffect, useState}from "react";
 import {MdExpandMore, MdExpandLess} from 'react-icons/md';
 import './UserData.css';
 
-const UserData = ({onNameChange, onSurnameChange, onDateChange, selectedGender, onGenderChange, selectedJob, onJobChange}) => {
+const UserData = ({onNameChange, onSurnameChange, onDateChange, onSelectedGender, onGenderChange, onEmailChange, onPhoneChange, onSelectedCountry, onCountryChange, onSelectedJob, onJobChange}) => {
 
     const [expand, setExpand] = useState(false);
     const [job, setJob] = useState(true);
     const [musician, setMusician] = useState(true);
     const [avatar, setAvatar] = useState([])
     const [selectedAvatar, setSelectedAvatar] = useState(null)
+    const [countries, setCountries] = useState([])
 
     // passing datas in form
     const nameChangeHandler = (event) => {
@@ -25,6 +26,18 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, selectedGender, 
 
     const genderChangeHandler = (event) => {
         onGenderChange(event.target.value);
+    }
+
+    const emailChangeHandler = (event) => {
+        onEmailChange(event.target.value)
+    }
+
+    const phoneChangeHanler = (event) => {
+        onPhoneChange(event.target.value)
+    }
+
+    const countryChangeHandler = (event) => {
+        onCountryChange(event.target.value)
     }
 
     const jobChangeHandler = (event) => {
@@ -85,19 +98,29 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, selectedGender, 
             }
 
         }
-        console.log("infinity loop")
+        // console.log("infinity loop detector")
         fetchAvatar()
     }, []);
-
-    // useEffect(() => {
-    //     const handleAvatarClick = (event, index) => {
-    //         // Handle the avatar click based on the index
-    //         event.preventDefault()
-    //         console.log(event.target)
-    //         setSelectedAvatar(index)
-    //       };
-    // }, [handleAvatarClick, setSelectedAvatar])
     
+    // fetch country
+    const url = 'https://restcountries.com/v3.1/all';
+
+    useEffect(() => {
+        const fetchCountry = async () => { 
+            try {
+                const response = await fetch(url);
+                const result = await response.json();
+                const countriesName = result.map(item => item.name.common)
+                setCountries(countriesName.sort()) 
+                console.log(countries)
+            } catch (error) {
+                console.error(error);
+            } 
+        };
+        fetchCountry()
+    },[])
+        
+
 
 
   const handleAvatarClick = (event, index) => {
@@ -143,7 +166,8 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, selectedGender, 
                             </div>
                             <div className="form-gender">
                                 <label>Gender</label>
-                                <select className="form-gender__select" value={selectedGender} onChange={genderChangeHandler}>
+                                <select className="form-gender__select" value={onSelectedGender} onChange={genderChangeHandler}>
+                                    <option hidden>Select Your Gender</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                     <option value="Other">Other</option>
@@ -172,6 +196,27 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, selectedGender, 
                             </div>
                         </div>
                         <div className="form-row-two">
+                            <div className="form-email">
+                                <label>Email Address</label>
+                                <input type="text" onChange={emailChangeHandler}/>
+                            </div>
+                            <div className="form-phone">
+                                <label>Phone Number</label>
+                                <input type="text" onChange={phoneChangeHanler}/>
+                            </div>
+                            <div className="form-country">
+                                <label>Country</label>
+                                <select className="form-country__select" value={onSelectedCountry} onChange={countryChangeHandler}>
+                                    <option hidden>Select Country</option>
+                                    {countries.map((country, index) => {
+                                        return (
+                                            <option key={index} value={country}>
+                                                {country}
+                                            </option>
+                                        )
+                                    })};
+                                </select>
+                            </div>
                             <div className="form-job">
                                 {musician ?
                                 <Fragment>
@@ -186,7 +231,7 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, selectedGender, 
                                 :
                                 <Fragment>
                                     <label>Job</label>
-                                    <select className="form-job__selector" value={selectedJob} onChange={jobChangeHandler}>
+                                    <select className="form-job__selector" value={onSelectedJob} onChange={jobChangeHandler}>
                                         <option hidden>Select Your Job</option>
                                         <option value='Lawyer'>Lawyer</option>
                                         <option value='Athlete'>Athlete</option>

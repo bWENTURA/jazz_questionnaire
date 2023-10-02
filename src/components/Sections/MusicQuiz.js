@@ -133,12 +133,16 @@ const MusicQuiz = ({onCheckHandler, onSumHandler, onSongData}) => {
                             {onSongData.map((checkbox) => (
                                 <ul key={checkbox.title}>
                                     <label key={checkbox.title}>
-                                        <input title={checkbox.title} type='checkbox' checked={checkbox.checked} onChange={onCheckHandler}></input>
+                                        <input 
+                                            title={checkbox.title} 
+                                            type='checkbox' 
+                                            checked={checkbox.checked} 
+                                            onChange={onCheckHandler}>
+                                        </input>
                                         {checkbox.title}
                                     </label>
                                 </ul>
                             ))}
-                            {/* <button onClick={onSumHandler}>Submit checker only!</button> */}
                         </div>
                     </div>
                     <div onClick={onSumHandler} className="button-container__player">

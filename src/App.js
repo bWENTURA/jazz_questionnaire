@@ -17,6 +17,9 @@ const App = () => {
   const [surname, setSurname] = useState('');
   const [date, setDate] = useState('');
   const [selectedGender, setSelectedGender] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [selectedCountry, setSelectedCountry] = useState('')
   const [selectedJob, setSelectedJob] = useState('')
   // below hooks for Quiz component
   const [showScore, setShowScore] = useState(true);
@@ -53,6 +56,18 @@ const App = () => {
 
   const handleGenderSelection = (value) => {
     setSelectedGender(value)
+  }
+
+  const handleEmailChange = (value) => {
+    setEmail(value);
+  }
+
+  const handlePhoneChange = (value) => {
+    setPhone(value)
+  }
+
+  const handleCountryChange = (value) => {
+    setSelectedCountry(value)
   }
 
   const handleJobSelection = (value) => {
@@ -182,9 +197,13 @@ const App = () => {
         onNameChange={handleNameChange}
         onSurnameChange={handleSurnameChange}
         onDateChange={handleDateChange}
-        selectedGender={selectedGender}
+        onSelectedGender={selectedGender}
         onGenderChange={handleGenderSelection}
-        selectedJob={selectedJob}
+        onEmailChange={handleEmailChange}
+        onPhoneChange={handlePhoneChange}
+        onSelectedCountry={selectedCountry}
+        onCountryChange={handleCountryChange}
+        onSelectedJob={selectedJob}
         onJobChange={handleJobSelection}
       />
       <Quiz 
@@ -203,6 +222,9 @@ const App = () => {
         surname={surname}
         date={date}
         gender={selectedGender}
+        email={email}
+        phone={phone}
+        country={selectedCountry}
         job={selectedJob}
         questionQuizScore={quizScore}
         audioQuizScore={audioQuizScore}
