@@ -38,11 +38,6 @@ import questions from '../../data/questions.json';
 const Quiz = ({onQuestionChange, onAnswerCheck, onCurrentQuestion, onShowScore}) => {
 
     const [expand, setExpand] = useState(false);
-    // const [showScore, setShowScore] = useState(true);
-    // const [currentQuestion, setCurrentQuestion] = useState(0);
-    // // poniższy useState będzie przechowywać wartość zaznaczonego pola
-    // const [selectedInput, setSelectedInput] = useState(0);
-    // const [answer, setAnswer] = useState({})
 
     // changin visibility of section
     const expandMoreHandler = () => {
@@ -92,7 +87,7 @@ const Quiz = ({onQuestionChange, onAnswerCheck, onCurrentQuestion, onShowScore})
         <Fragment>
             {expand ? 
                 <section id="quiz" className='container'>
-                    <div className="quiz-container-tittle">    
+                    <div className="quiz-container-title">    
                         <h2>Questions</h2>
                         <button className="expand-more-button" onClick={expandMoreHandler}>
                             <MdExpandMore />

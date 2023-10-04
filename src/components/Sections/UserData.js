@@ -2,7 +2,16 @@ import {Fragment, React, useEffect, useState}from "react";
 import {MdExpandMore, MdExpandLess} from 'react-icons/md';
 import './UserData.css';
 
-const UserData = ({onNameChange, onSurnameChange, onDateChange, onSelectedGender, onGenderChange, onEmailChange, onPhoneChange, onSelectedCountry, onCountryChange, onSelectedJob, onJobChange}) => {
+const UserData = ({onNameChange, onSurnameChange, onDateChange, onGenderChange, onEmailChange, onPhoneChange, onCountryChange, onJobChange}) => {
+
+    const [inputName, setInputName] = useState('')
+    const [inputSurname, setInputSurname] = useState('')
+    const [inputDate, setInputDate] = useState('')
+    const [inputSelectedGender, setInputSelectedGender] = useState('')
+    const [inputEmail, setInputEmail] = useState('')
+    const [inputPhone, setInputPhone] = useState('')
+    const [inputCountry, setInputCountry] = useState('')
+    const [inputJob, setInputJob] = useState('')
 
     const [expand, setExpand] = useState(false);
     const [job, setJob] = useState(true);
@@ -13,35 +22,35 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, onSelectedGender
 
     // passing datas in form
     const nameChangeHandler = (event) => {
-        onNameChange(event.target.value);
+        setInputName(event.target.value)
     };
 
     const surnameChangeHandler = (event) => {
-        onSurnameChange(event.target.value);
+        setInputSurname(event.target.value)
     };
 
     const dateChangeHandler = (event) => {
-        onDateChange(event.target.value);
+        setInputDate(event.target.value)
     };
 
     const genderChangeHandler = (event) => {
-        onGenderChange(event.target.value);
+        setInputSelectedGender(event.target.value)
     }
 
     const emailChangeHandler = (event) => {
-        onEmailChange(event.target.value)
+        setInputEmail(event.target.value)
     }
 
     const phoneChangeHanler = (event) => {
-        onPhoneChange(event.target.value)
+        setInputPhone(event.target.value)
     }
 
     const countryChangeHandler = (event) => {
-        onCountryChange(event.target.value)
+        setInputCountry(event.target.value)
     }
 
     const jobChangeHandler = (event) => {
-        onJobChange(event.target.value)
+        setInputJob(event.target.value)
     } 
 
     // const genderHandler = (event) => {
@@ -70,8 +79,24 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, onSelectedGender
         setJob(false);
     };
 
-    // enter button handler
+    /*
+      BUTTON HANDLER
+  */
     const onButtonHandler = () => {
+        // sending data from inputs
+        onNameChange(inputName);
+        onSurnameChange(inputSurname);
+        onDateChange(inputDate);
+        onGenderChange(inputSelectedGender);;
+        onEmailChange(inputEmail);
+        onPhoneChange(inputPhone);
+        onCountryChange(inputCountry);
+        onJobChange(inputJob);
+
+        // closing current component
+        // setExpand(true)
+
+        // srolling effect
         window.scrollTo({
             top: window.scrollY + 350,
             behavior: 'smooth'
@@ -154,19 +179,19 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, onSelectedGender
                         <div className="form-row-one">
                             <div className="form-name">
                                 <label>Name</label>
-                                <input type="text" onChange={nameChangeHandler} />
+                                <input type="text" value={inputName} onChange={nameChangeHandler}/>
                             </div>
                             <div className="form-surname">
                                 <label>Surname</label>
-                                <input type="text" onChange={surnameChangeHandler} />
+                                <input type="text" value={inputSurname} onChange={surnameChangeHandler} />
                             </div>
                             <div className='form-date'>
                                 <label>Birth Date</label>
-                                <input type="date" min="1940-01-01" step="2023-05-22" onChange={dateChangeHandler}/>
+                                <input type="date" min="1940-01-01" step="2023-05-22" value={inputDate} onChange={dateChangeHandler}/>
                             </div>
                             <div className="form-gender">
                                 <label>Gender</label>
-                                <select className="form-gender__select" value={onSelectedGender} onChange={genderChangeHandler}>
+                                <select className="form-gender__select" value={inputSelectedGender} onChange={genderChangeHandler}>
                                     <option hidden>Select Your Gender</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
@@ -198,15 +223,15 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, onSelectedGender
                         <div className="form-row-two">
                             <div className="form-email">
                                 <label>Email Address</label>
-                                <input type="text" onChange={emailChangeHandler}/>
+                                <input type="text" value={inputEmail} onChange={emailChangeHandler}/>
                             </div>
                             <div className="form-phone">
                                 <label>Phone Number</label>
-                                <input type="text" onChange={phoneChangeHanler}/>
+                                <input type="text" value={inputPhone} onChange={phoneChangeHanler}/>
                             </div>
                             <div className="form-country">
                                 <label>Country</label>
-                                <select className="form-country__select" value={onSelectedCountry} onChange={countryChangeHandler}>
+                                <select className="form-country__select" value={inputCountry} onChange={countryChangeHandler}>
                                     <option hidden>Select Country</option>
                                     {countries.map((country, index) => {
                                         return (
@@ -219,33 +244,33 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, onSelectedGender
                             </div>
                             <div className="form-job">
                                 {musician ?
-                                <Fragment>
-                                {job ?
-                                <Fragment>
-                                    <label>Are you a musician?</label> 
-                                    <div className="form-job__buttons">
-                                        <button onClick={MusicianHandler} value='Musician'>Yes</button>
-                                        <button onClick={NonMusicianHandler}>No</button>
-                                    </div>
-                                </Fragment>
+                                    <Fragment>
+                                        {job ?
+                                            <Fragment>
+                                                <label>Are you a musician?</label> 
+                                                <div className="form-job__buttons">
+                                                    <button onClick={MusicianHandler} value='Musician'>Yes</button>
+                                                    <button onClick={NonMusicianHandler}>No</button>
+                                                </div>
+                                            </Fragment>
+                                        :
+                                            <Fragment>
+                                                <label>Job</label>
+                                                <select className="form-job__selector" value={inputJob} onChange={jobChangeHandler}>
+                                                    <option hidden>Select Your Job</option>
+                                                    <option value='Lawyer'>Lawyer</option>
+                                                    <option value='Athlete'>Athlete</option>
+                                                    <option value='Doctor'>Doctor</option>
+                                                    <option value='Own Buisness'>Own Buisness</option>
+                                                    <option value='Other'>Other</option>
+                                                </select>
+                                            </Fragment>
+                                        }
+                                    </Fragment>
                                 :
-                                <Fragment>
-                                    <label>Job</label>
-                                    <select className="form-job__selector" value={onSelectedJob} onChange={jobChangeHandler}>
-                                        <option hidden>Select Your Job</option>
-                                        <option value='Lawyer'>Lawyer</option>
-                                        <option value='Athlete'>Athlete</option>
-                                        <option value='Doctor'>Doctor</option>
-                                        <option value='Own Buisness'>Own Buisness</option>
-                                        <option value='Other'>Other</option>
-                                    </select>
-                                </Fragment>
-                                }
-                                </Fragment>
-                                :
-                                <Fragment>
-                                    <p>Maybe you are poor, but althought happy!</p>
-                                </Fragment>
+                                    <Fragment>
+                                        <p>Maybe you are poor, but althought happy!</p>
+                                    </Fragment>
                                 }
                             </div>
                         </div>

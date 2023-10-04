@@ -38,7 +38,6 @@ const App = () => {
   /*
       USER DATA
   */ 
-
   const handleNameChange = (value) => {
     setName(value);
     localStorage.setItem('name', value)
@@ -73,6 +72,17 @@ const App = () => {
   const handleJobSelection = (value) => {
     setSelectedJob(value)
   }
+
+  // const onClick = (value) => {
+  //   setName(value);
+  //   setSurname(value);
+  //   setDate(value)
+  //   setSelectedGender(value)
+  //   setEmail(value);
+  //   setPhone(value)
+  //   setSelectedCountry(value)
+  //   setSelectedJob(value)
+  // }
   /*
       QUIZ
   */
@@ -197,13 +207,10 @@ const App = () => {
         onNameChange={handleNameChange}
         onSurnameChange={handleSurnameChange}
         onDateChange={handleDateChange}
-        onSelectedGender={selectedGender}
         onGenderChange={handleGenderSelection}
         onEmailChange={handleEmailChange}
         onPhoneChange={handlePhoneChange}
-        onSelectedCountry={selectedCountry}
         onCountryChange={handleCountryChange}
-        onSelectedJob={selectedJob}
         onJobChange={handleJobSelection}
       />
       <Quiz 
