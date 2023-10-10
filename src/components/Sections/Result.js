@@ -3,6 +3,7 @@ import './Result.css';
 
 const Result = ({name, surname, date, gender, email, phone, country, job, questionQuizScore, audioQuizScore}) => {
 
+  //  DISPLAY USESTATE
   const [expand, setExpand] = useState(true);
   const [displayName, setDisplayName] = useState(name);
   const [displaySurname, setDisplaySurname] = useState(surname);
@@ -12,11 +13,13 @@ const Result = ({name, surname, date, gender, email, phone, country, job, questi
   const [displayPhone, setDisplayPhone] = useState(phone);
   const [displayJob, setDisplayJob] = useState(job);
   const [displayCountry, setDisplayCountry] = useState(country);
-  // const [questionQuizScore, setQuestionQuizScore] = useState(questionQuizScore);
-  // const [audioQuizScore, setAudioQuizScore] = useState(audioQuizScore)
-  const [displayScore, setDisplayScore] = useState(0)
+  const [displayScore, setDisplayScore] = useState(0);
+  //  RECORD SCORES
+  const [result, setResult] = useState([]);
   
-  // changin visibility of section
+  /* 
+      changin visibility of section by click event
+   */
 
   const onClickHandler = (e) => {
     e.preventDefault();
@@ -33,8 +36,8 @@ const Result = ({name, surname, date, gender, email, phone, country, job, questi
     setTimeout(() => {
       window.scrollTo(0, document.body.scrollHeight)
     }, 300)
+
   };
-  // console.log(displayScore)
 
   const refreshPage = () => {
     window.scrollTo(0,0)
@@ -72,10 +75,11 @@ const Result = ({name, surname, date, gender, email, phone, country, job, questi
               <p className="data-country">Country: <span>{displayCountry}</span></p>
               <p className="data-job">Job: <span>{displayJob}</span></p>
               <p className="data-result">Score: <span>{displayScore}%</span></p>
-              <div className="button-container__result">
-                <button className="data-button" type="submit" onClick={refreshPage}>Try again!</button>
-              </div>
             </div>
+            <div className="button-container__result">
+              <button className="data-button" type="submit" onClick={refreshPage}>Try again!</button>
+            </div>
+            
           </section>
         }
       </Fragment>

@@ -1,9 +1,10 @@
-import {Fragment, React, useEffect, useState}from "react";
+import {Fragment, React, useEffect, useState, useRef}from "react";
 import {MdExpandMore, MdExpandLess} from 'react-icons/md';
+import {validName, validSurname, validEmail, validPhone, validDate, validButton} from '../../validation/RegEx'
 import './UserData.css';
 
 const UserData = ({onNameChange, onSurnameChange, onDateChange, onGenderChange, onEmailChange, onPhoneChange, onCountryChange, onJobChange}) => {
-
+    // input states
     const [inputName, setInputName] = useState('')
     const [inputSurname, setInputSurname] = useState('')
     const [inputDate, setInputDate] = useState('')
@@ -16,16 +17,114 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, onGenderChange, 
     const [expand, setExpand] = useState(false);
     const [job, setJob] = useState(true);
     const [musician, setMusician] = useState(true);
-    const [avatar, setAvatar] = useState([])
-    const [selectedAvatar, setSelectedAvatar] = useState(null)
-    const [countries, setCountries] = useState([])
+    const [avatar, setAvatar] = useState([]);
+    const [selectedAvatar, setSelectedAvatar] = useState(null);
+    const [countries, setCountries] = useState([]);
+    // validation states
+    const [buttonDisabled, setButtonDisabled] = useState(true);
+    const initialErrors = {name: "", surname: "", date: "", email: "", phonenumber: ""}
+    const [formErrors, setFormErrors] = useState(initialErrors);
+    const refInputName = useRef(null);
+    const refInputSurname = useRef(null);
+    const refInputDate = useRef(null);
+    const refInputEmail = useRef(null);
+    const refInputPhone = useRef(null);
+
+    /* 
+        VALIDATION OF FORMS
+    */
+
+    useEffect(() => {
+        const refNameStyle = refInputName.current.style;
+        const refSurnameStyle = refInputSurname.current.style;
+        const refDateStyle = refInputDate.current.style;
+        const refEmailStyle = refInputEmail.current.style;
+        const refPhoneNumberStyle = refInputPhone.current.style;
+        //  NAME
+                // Button Validation
+        if(inputName.length > 2){
+            setButtonDisabled(false)
+        } else {
+            setButtonDisabled(true)
+        }
+
+        if(validName.test(inputName)){
+            setFormErrors(prevFormErrors => ({...prevFormErrors, name: ""}))
+            refNameStyle.border = '3px solid var(--c-main)'
+        } else if (!validName.test(inputName) && inputName !== "") {
+            setFormErrors(prevFormErrors => ({...prevFormErrors, name: "Min. 3, and only letters."}))
+            refNameStyle.border = '3px solid red'
+        } else if (inputName.length === 0) {
+            setFormErrors(prevFormErrors => ({...prevFormErrors, name: ""}))
+            refNameStyle.border = '3px solid var(--c-main)'
+        }
+
+        // SURNAME
+        if(validSurname.test(inputSurname)){
+            setFormErrors(prevFormErrors => ({...prevFormErrors, surname: ""}))
+            refSurnameStyle.border = '3px solid var(--c-main)'
+        } else if (!validSurname.test(inputSurname) && inputSurname !== "") {
+            setFormErrors(prevFormErrors => ({...prevFormErrors, surname: "Min. 3, and only letters."}))
+            refSurnameStyle.border = '3px solid red'
+        } else if (inputSurname.length === 0) {
+            setFormErrors(prevFormErrors => ({...prevFormErrors, surname: ""}))
+            refSurnameStyle.border = '3px solid var(--c-main)'
+        }
+
+        // DATE
+        if(inputDate === "") {
+            setFormErrors(prevFormErrors => ({...prevFormErrors, date: ""}))
+            refDateStyle.border = '3px solid var(--c-main)'
+        } else if(validDate.test(inputDate)){
+            setFormErrors(prevFormErrors => ({...prevFormErrors, date: ""}))
+            refDateStyle.border = '3px solid var(--c-main)'
+        } else {
+            setFormErrors(prevFormErrors => ({...prevFormErrors, date: "Please, select day, month and year."}))
+            refDateStyle.border = '3px solid red'
+        }
+
+        // EMAIL
+        if(validEmail.test(inputEmail)) {
+            setFormErrors(prevFormErrors => ({...prevFormErrors, email: ""}))
+            refEmailStyle.border = '3px solid var(--c-main)'
+        } else if (!validEmail.test(inputEmail) && inputEmail !== "") {
+            setFormErrors(prevFormErrors => ({...prevFormErrors, email: "Please, write valid email adress."}))
+            refEmailStyle.border = '3px solid red'
+        } else if (inputEmail.length === 0) {
+            setFormErrors(prevFormErrors => ({...prevFormErrors, email: ""}))
+            refEmailStyle.border = '3px solid var(--c-main)'
+        }
+
+        // PHONE
+        if(validPhone.test(inputPhone)) {
+            setFormErrors(prevFormErrors => ({...prevFormErrors, phonenumber: ""}))
+            refPhoneNumberStyle.border = '3px solid var(--c-main)'
+        } else if (!validPhone.test(inputPhone) && inputPhone !== "") {
+            setFormErrors(prevFormErrors => ({...prevFormErrors, phonenumber: "Please, write valid phone number, eg. 000-000-000."}))
+            refPhoneNumberStyle.border = '3px solid red'
+        } else if (inputPhone.length === 0) {
+            setFormErrors(prevFormErrors => ({...prevFormErrors, phonenumber: ""}))
+            refPhoneNumberStyle.border = '3px solid var(--c-main)'
+        }
+
+
+    }, [inputName, inputSurname, inputDate, inputEmail, inputPhone])
+    
+
+    /* 
+        UPDATING INPUTS
+    */
 
     // passing datas in form
-    const nameChangeHandler = (event) => {
-        setInputName(event.target.value)
+    const nameChangeHandler = (event) => {  
+        const name = event.target.value;  
+        // sending data from input
+        setInputName(name)        
     };
 
     const surnameChangeHandler = (event) => {
+        // validation of form
+
         setInputSurname(event.target.value)
     };
 
@@ -53,11 +152,6 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, onGenderChange, 
         setInputJob(event.target.value)
     } 
 
-    // const genderHandler = (event) => {
-    //     onGenderChange(event.target.value)
-    //     console.log(event.target.value)
-    // }
-
     // changin visibility of section
     const expandMoreHandler = () => {
         setExpand(false)
@@ -81,7 +175,7 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, onGenderChange, 
 
     /*
       BUTTON HANDLER
-  */
+    */
     const onButtonHandler = () => {
         // sending data from inputs
         onNameChange(inputName);
@@ -137,7 +231,7 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, onGenderChange, 
                 const result = await response.json();
                 const countriesName = result.map(item => item.name.common)
                 setCountries(countriesName.sort()) 
-                console.log(countries)
+                // console.log(countries)
             } catch (error) {
                 console.error(error);
             } 
@@ -173,21 +267,41 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, onGenderChange, 
                         </button>
                     </div>
                     <div className="form-instruction">
-                        <h3 className="form-instruction__item">Please, enter your data!</h3>
+                        <h3 className="form-instruction__task">Please, enter your data!</h3>
+                        <p className="form-instruction__required">* required</p>
                     </div>
                     <form className="form">
                         <div className="form-row-one">
                             <div className="form-name">
-                                <label>Name</label>
-                                <input type="text" value={inputName} onChange={nameChangeHandler}/>
+                                <label>Name*</label>
+                                <input type="text" 
+                                        ref={refInputName} 
+                                        placeholder=" Name" 
+                                        className="input" 
+                                        value={inputName} 
+                                        onChange={nameChangeHandler}/>
+                                <p>{formErrors.name}</p>
                             </div>
                             <div className="form-surname">
                                 <label>Surname</label>
-                                <input type="text" value={inputSurname} onChange={surnameChangeHandler} />
+                                <input type="text" 
+                                        ref={refInputSurname} 
+                                        placeholder=" Surname" 
+                                        className="input" 
+                                        value={inputSurname} 
+                                        onChange={surnameChangeHandler} />
+                                <p>{formErrors.surname}</p>
                             </div>
                             <div className='form-date'>
                                 <label>Birth Date</label>
-                                <input type="date" min="1940-01-01" step="2023-05-22" value={inputDate} onChange={dateChangeHandler}/>
+                                <input type="date" 
+                                        ref={refInputDate} 
+                                        min="1940-01-01" 
+                                        step="2023-05-22" 
+                                        className="input" 
+                                        value={inputDate} 
+                                        onChange={dateChangeHandler}/>
+                                <p>{formErrors.date}</p>
                             </div>
                             <div className="form-gender">
                                 <label>Gender</label>
@@ -223,11 +337,23 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, onGenderChange, 
                         <div className="form-row-two">
                             <div className="form-email">
                                 <label>Email Address</label>
-                                <input type="text" value={inputEmail} onChange={emailChangeHandler}/>
+                                <input type="text"
+                                        ref={refInputEmail} 
+                                        placeholder=" email@email.xxx" 
+                                        className="input" 
+                                        value={inputEmail}
+                                        onChange={emailChangeHandler}/>
+                                <p>{formErrors.email}</p>
                             </div>
                             <div className="form-phone">
                                 <label>Phone Number</label>
-                                <input type="text" value={inputPhone} onChange={phoneChangeHanler}/>
+                                <input type="text"
+                                        ref={refInputPhone} 
+                                        placeholder=" xxx-xxx-xxx" 
+                                        className="input" 
+                                        value={inputPhone} 
+                                        onChange={phoneChangeHanler}/>
+                                <p>{formErrors.phonenumber}</p>
                             </div>
                             <div className="form-country">
                                 <label>Country</label>
@@ -275,8 +401,8 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, onGenderChange, 
                             </div>
                         </div>
                     </form> 
-                    <div className="button-container__data">
-                        <button onClick={onButtonHandler}>Enter Data!</button>
+                    <div className={buttonDisabled ? 'button-container__data button-disabled' : 'button-container__data'}>
+                        <button onClick={onButtonHandler} disabled={buttonDisabled}>Enter Data!</button>
                     </div>
                 </section>
                 }

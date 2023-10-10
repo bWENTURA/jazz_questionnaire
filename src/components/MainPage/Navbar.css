@@ -100,11 +100,12 @@ li {
 .popup-text {
     position: absolute;
     font-size: 9px;
-    padding: 5px;
+    font-style: italic;
+    padding: 2px;
     border: 1px solid var(--c-main);
     border-radius: 25%;
-    background-color: var(--c-main);
-    color: var(--c-white);
+    background-color: var(--c-background);
+    color: var(--c-main);
     transition: 2s;
 }
 
