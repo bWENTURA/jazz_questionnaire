@@ -32,39 +32,39 @@
 /* div containers in this <form> */
 
 .form-name {
-    margin: 5px 20px 5px;
+    margin: 5px 20px 20px;
 }
 
 .form-surname {
-    margin: 5px 20px 5px;
+    margin: 5px 20px 20px;
 }
 
 .form-date {
-    margin: 5px 20px 5px;
+    margin: 5px 20px 20px;
 }
 
 .form-gender {
-    margin: 5px 20px 5px;
+    margin: 5px 20px 20px;
 }
 
 .form-job {
-    margin: 5px 20px 5px;
+    margin: 5px 20px 20px;
 }
 
 .form-avatar {
-    margin: 5px 20px 5px;
+    margin: 5px 20px 20px;
 }
 
 .form-email {
-    margin: 5px 20px 5px;
+    margin: 5px 20px 20px;
 }
 
 .form-phone {
-    margin: 5px 20px 5px;
+    margin: 5px 20px 20px;
 }
 
 .form-country {
-    margin: 5px 20px 5px;
+    margin: 5px 20px 20px;
 }
 
 /*  --------------------------- */
@@ -121,6 +121,7 @@
     font-style: italic;
     position: absolute;
     margin: 0px;
+    padding-bottom: 10px;
 }
 
 /*  --------------------------- */
@@ -158,7 +159,7 @@
 }
 
 .form-job p {
-    color: var(--c-dark)
+    color: var(--c-dark);
 }
 
 .form-job button {

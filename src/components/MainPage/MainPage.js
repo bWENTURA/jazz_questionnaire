@@ -56,7 +56,7 @@ const MainPage = ({onModeHandler}) => {
                 : 
                 '' }
                 <div className="corner-github">
-                    <a href="https://github.com/PIvSky" className="corner-github__icon">
+                    <a href="https://github.com/PIvSky" className="corner-github__icon" target="_blank">
                         <img alt="remote-repo-icon" src={GithubIcon} className="corner-github__iconPic"/>
                     </a>
                 </div>

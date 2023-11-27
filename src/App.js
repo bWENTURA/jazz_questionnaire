@@ -1,6 +1,5 @@
 import {React, Fragment, useState, useEffect} from 'react';
 // import {useEffect} from 'react';
-import 'animate.css';
 import './App.css';
 import MainPage from './components/MainPage/MainPage';
 import UserData from './components/Sections/UserData';
