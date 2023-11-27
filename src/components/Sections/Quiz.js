@@ -35,7 +35,7 @@ import questions from '../../data/questions.json';
 //     },
 //   ];
 
-const Quiz = ({onQuestionChange, onAnswerCheck, onCurrentQuestion, onShowScore}) => {
+const Quiz = ({onQuestionChange, onAnswerCheck, onCurrentQuestion, onShowScore, userName}) => {
 
     const [expand, setExpand] = useState(false);
 
@@ -105,6 +105,9 @@ const Quiz = ({onQuestionChange, onAnswerCheck, onCurrentQuestion, onShowScore})
                     {onShowScore ?
                     <Fragment>
                         <form className="form-container" >
+                            <div className="quiz-task">
+                                <p className="quiz-task__instruction">Now is the time for next stage!<br></br>Task:<br></br> I have a couple of questions for you {userName}.<br></br> Please, choose one of two answers in each questions.</p>
+                            </div>
                             <div className="question">
                                 <h3 className="question-title">{questions[onCurrentQuestion].text}</h3>
                                     {questions[onCurrentQuestion].options.map(options => {
@@ -133,15 +136,15 @@ const Quiz = ({onQuestionChange, onAnswerCheck, onCurrentQuestion, onShowScore})
                             </div> */}
                         </form>
                         <div className="button-container__quiz">
-                            <button type="submit" onClick={onQuestionChange}>Enter Data!</button>
+                            <button type="submit" onClick={onQuestionChange}>Next Question!</button>
                         </div>
                     </Fragment>
                     :
-                        <form className="form-container false" >
-                            <div className="question">
-                                <h3>Go to the music player section!</h3>
-                            </div>
-                        </form>
+                    <form className="form-container false" >
+                        <div className="question">
+                            <h3>Go to the music player section!</h3>
+                        </div>
+                    </form>
                      }
                 </section>
             }

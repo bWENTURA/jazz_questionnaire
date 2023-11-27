@@ -61,6 +61,12 @@
     border-color: var(--c-main);
     cursor: pointer;
     transition: 0.5s;
+    animation: pulse 1s infinite ease-in-out alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(0.8);}
+    to { transform: scale(1.2);}
 }
 
 .intro-container__button:hover {

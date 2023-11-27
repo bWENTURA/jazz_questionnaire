@@ -2,6 +2,10 @@
     width: auto;
 }
 
+.quiz-task {
+    padding-inline: 5px;
+}
+
 .music-quiz-container-title {
     display:flex;
     justify-content: space-between;

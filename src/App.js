@@ -213,12 +213,14 @@ const App = () => {
         onJobChange={handleJobSelection}
       />
       <Quiz 
+        userName={name}
         onQuestionChange={nextQuestionHandler}
         onAnswerCheck={answerHandler}
         onCurrentQuestion={currentQuestion}
         onShowScore={showScore}
       />
       <MusicQuiz
+        userName={name}
         onSongData={checkValue}
         onCheckHandler={checkHandler}
         onSumHandler={sumHandler}

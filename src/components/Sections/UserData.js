@@ -267,7 +267,7 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, onGenderChange, 
                         </button>
                     </div>
                     <div className="form-instruction">
-                        <h3 className="form-instruction__task">Please, enter your data!</h3>
+                        <h3 className="form-instruction__task">Hello!<br></br> Welcome in my jazz quiz. Let's check, how much you fit on being jazz musician.<br></br> First of all, please enter your data!</h3>
                         <p className="form-instruction__required">* required</p>
                     </div>
                     <form className="form">

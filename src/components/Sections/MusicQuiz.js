@@ -57,7 +57,7 @@ const songsData = [
     },
 ]
 
-const MusicQuiz = ({onCheckHandler, onSumHandler, onSongData}) => {
+const MusicQuiz = ({onCheckHandler, onSumHandler, onSongData, userName}) => {
 
     // React Hooks
     const [expand, setExpand] = useState(false);
@@ -112,6 +112,9 @@ const MusicQuiz = ({onCheckHandler, onSumHandler, onSongData}) => {
                             <MdExpandLess className="expand-more-button-component"/>
                         </button>
                     </div>
+                    <div className="quiz-task">
+                                <p className="quiz-task__instruction">Now is the time for the last stage of my quiz!<br></br>Task:<br></br> - Use music player to listen to 6 different examples of songs. <br></br>Choose only 3 of them which - in your opinion - are represented for jazz music.<br></br>{userName}, let's do it!</p>
+                            </div>
                     <div className="music-quiz">
                         <audio 
                             src={currentSong.src}
