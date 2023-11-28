@@ -57,14 +57,14 @@ const songsData = [
     },
 ]
 
-const MusicQuiz = ({onCheckHandler, onSumHandler, onSongData, userName}) => {
+const MusicQuiz = ({onCheckHandler, onSumHandler, onSongData, userName, disabled}) => {
 
     // React Hooks
     const [expand, setExpand] = useState(false);
     const [songs, setSongs] = useState(songsData);
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentSong, setCurrentSong] = useState(songsData[0]);
-    // const [checkValue, setCheckValue] = useState(songsData)
+    // validation of button
     const audioElem = useRef()
 
     // Play or pause music
@@ -149,7 +149,11 @@ const MusicQuiz = ({onCheckHandler, onSumHandler, onSongData, userName}) => {
                         </div>
                     </div>
                     <div onClick={onSumHandler} className="button-container__player">
-                        <button>Enter My Answers!</button>
+                        <button
+                            className={disabled ? 'disabled' : ''}
+                            disabled={disabled}
+                            >Enter My Answers!
+                        </button>
                     </div>
                 </section>}
         </Fragment>

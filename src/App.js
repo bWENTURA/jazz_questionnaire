@@ -32,7 +32,8 @@ const App = () => {
   const [checkValue, setCheckValue] = useState(songsData)
   const [audioQuizScore, setAudioQuizScore] = useState('');
   // checkbox validation
-  
+  const [checkedSum, setCheckedSum] = useState(0);
+  const [disabled, setDisabled] = useState(true);
   // LIGHT / DARK MODE
   const [isLightMode, setIsLightMode] = useState(true);
 
@@ -131,14 +132,15 @@ const App = () => {
   // useEffect(() => {
   //   console.log(quizScore);
   // }, [quizScore]);
-
-  // setCheckValue returns new object, with changed (if checkbox.title === checkboxTitle)
-  // value of checked on true and rest of keys with no changes(spread operator);
-  //  else, return not-changed object;
   
   /*
       MUSIC QUIZ
   */
+
+  // setCheckValue returns new object, with changed (if checkbox.title === checkboxTitle)
+  // value of checked on true and rest of keys with no changes(spread operator);
+  //  else, return not-changed object;
+
   const checkHandler = (e) => {
     const checkboxTitle = e.target.title;
     setCheckValue((prevValues) => 
@@ -146,7 +148,19 @@ const App = () => {
         checkbox.title === checkboxTitle ? {...checkbox, checked: e.target.checked } : checkbox
         )
     );
+
+    // check's validation
+    const isChecked = e.target.checked;
+    setCheckedSum((prevSum)=> 
+      (isChecked ? prevSum + 1 : prevSum - 1)
+    )
   };
+
+  useEffect(() => {
+    if(checkedSum === 3) {
+      setDisabled(false)
+    }
+  },[checkedSum])
 
   // this func sum values of checked checkbox
   const sumHandler = () => {
@@ -167,6 +181,8 @@ const App = () => {
       }
     }, 3000)
   }, [name]);
+
+  // check's validation
 
   /*
       DARK MODE 
@@ -226,6 +242,7 @@ const App = () => {
         onSongData={checkValue}
         onCheckHandler={checkHandler}
         onSumHandler={sumHandler}
+        disabled={disabled}
       />
       <Result 
         name={name}
