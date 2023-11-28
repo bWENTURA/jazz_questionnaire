@@ -41,9 +41,12 @@ const Player = ({songs, audioElem, isPlaying, setIsPlaying, currentSong, setCurr
     } else {
       setCurrentSong(songs[index - 1])
     }
+    // when user change song to previous one, play button is changin for pause button
+    if (isPlaying === true) {
+      setIsPlaying(false)
+    }
     audioElem.current.currentTime = 0;
     // take changed audio file to beggining
-
     resetRef.current.style.width = '0%';
   }
 
@@ -54,6 +57,10 @@ const Player = ({songs, audioElem, isPlaying, setIsPlaying, currentSong, setCurr
       setCurrentSong(songs[0] )
     } else {
       setCurrentSong(songs[index + 1])
+    }
+    // when user change song to next one, play button is changin for pause button
+    if (isPlaying === true) {
+      setIsPlaying(false)
     }
     audioElem.current.currentTime = 0;
     resetRef.current.style.width = '0%';
