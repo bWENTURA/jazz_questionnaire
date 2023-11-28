@@ -57,7 +57,7 @@ const songsData = [
     },
 ]
 
-const MusicQuiz = ({onCheckHandler, onSumHandler, onSongData, userName, disabled}) => {
+const MusicQuiz = ({onCheckHandler, onSumHandler, onSongData, userName, disabledMusiqQuizButton}) => {
 
     // React Hooks
     const [expand, setExpand] = useState(false);
@@ -150,8 +150,8 @@ const MusicQuiz = ({onCheckHandler, onSumHandler, onSongData, userName, disabled
                     </div>
                     <div onClick={onSumHandler} className="button-container__player">
                         <button
-                            className={disabled ? 'disabled' : ''}
-                            disabled={disabled}
+                            className={disabledMusiqQuizButton ? 'disabled' : ''}
+                            disabled={disabledMusiqQuizButton}
                             >Enter My Answers!
                         </button>
                     </div>

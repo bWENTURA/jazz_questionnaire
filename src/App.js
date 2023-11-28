@@ -33,7 +33,7 @@ const App = () => {
   const [audioQuizScore, setAudioQuizScore] = useState('');
   // checkbox validation
   const [checkedSum, setCheckedSum] = useState(0);
-  const [disabled, setDisabled] = useState(true);
+  const [disabledMusiqQuizButton, setDisabledMusiqQuizButton] = useState(true);
   // LIGHT / DARK MODE
   const [isLightMode, setIsLightMode] = useState(true);
 
@@ -156,10 +156,13 @@ const App = () => {
     )
   };
 
+  // MusiqQuiz Button Validation
   useEffect(() => {
     if(checkedSum === 3) {
-      setDisabled(false)
-    }
+      setDisabledMusiqQuizButton(false)
+    } else {
+        setDisabledMusiqQuizButton(true)
+      }
   },[checkedSum])
 
   // this func sum values of checked checkbox
@@ -202,6 +205,7 @@ const App = () => {
       root.style.setProperty('--c-dark', '#333');
       root.style.setProperty('--c-white', '#f8f4e9');
       root.style.setProperty('--c-background', '#efe2ba');
+      root.style.setProperty('--c-background-task', '#008a66')
       root.style.setProperty('--c-background-dark', '#f7d7b5');
       root.style.setProperty('--c-background-input', 'rgba(253, 253, 253, 0.685)');
     } else {
@@ -211,6 +215,7 @@ const App = () => {
       root.style.setProperty('--c-dark', '#f8f4e9');
       root.style.setProperty('--c-white', '#333');
       root.style.setProperty('--c-background', '#333');
+      root.style.setProperty('--c-background-task', '#333')
       root.style.setProperty('--c-background-dark', '#f8f4e9');
       root.style.setProperty('--c-background-input', '#f8f4e9');
     }
@@ -242,7 +247,7 @@ const App = () => {
         onSongData={checkValue}
         onCheckHandler={checkHandler}
         onSumHandler={sumHandler}
-        disabled={disabled}
+        disabledMusiqQuizButton={disabledMusiqQuizButton}
       />
       <Result 
         name={name}

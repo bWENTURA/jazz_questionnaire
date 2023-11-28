@@ -11,16 +11,16 @@ const Navbar = ({onClose, modeHandler, mode, darkMode, lightMode, isPopupVisible
             <nav >
                 <ul className="nav-list">
                     <li className="nav-list__content">
-                        <Link to="data" spy={true} smooth={true} offset={0} duration={300}>User Data</Link>
+                        <Link to="data" spy={true} smooth={true} offset={0} duration={300}>1. User Data</Link>
                     </li>
                     <li className="nav-list__content">
-                        <Link to="quiz" spy={true} smooth={true} offset={0} duration={300}>Quiz</Link>
+                        <Link to="quiz" spy={true} smooth={true} offset={0} duration={300}>2. Quiz</Link>
                     </li>
                     <li className="nav-list__content">
-                        <Link to="music-quiz" spy={true} smooth={true} offset={0} duration={300}>Music Quiz</Link>
+                        <Link to="music-quiz" spy={true} smooth={true} offset={0} duration={300}>3. Music Quiz</Link>
                     </li>
                     <li className="nav-list__content">
-                        <Link to="result" spy={true} smooth={true} offset={0} duration={300}>Result</Link>
+                        <Link to="result" spy={true} smooth={true} offset={0} duration={300}>4. Result</Link>
                     </li>
                     <li className="nav-list__btn close">
                         <button className="nav-btn" onClick={onClose}>

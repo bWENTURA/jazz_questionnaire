@@ -1,6 +1,6 @@
 import {Fragment, React, useEffect, useState, useRef}from "react";
 import {MdExpandMore, MdExpandLess} from 'react-icons/md';
-import {validName, validSurname, validEmail, validPhone, validDate, validButton} from '../../validation/RegEx'
+import {validName, validSurname, validEmail, validPhone, validDate} from '../../validation/RegEx'
 import './UserData.css';
 
 const UserData = ({onNameChange, onSurnameChange, onDateChange, onGenderChange, onEmailChange, onPhoneChange, onCountryChange, onJobChange}) => {
@@ -13,7 +13,7 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, onGenderChange, 
     const [inputPhone, setInputPhone] = useState('')
     const [inputCountry, setInputCountry] = useState('')
     const [inputJob, setInputJob] = useState('')
-
+    
     const [expand, setExpand] = useState(false);
     const [job, setJob] = useState(true);
     const [musician, setMusician] = useState(true);
@@ -40,14 +40,14 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, onGenderChange, 
         const refDateStyle = refInputDate.current.style;
         const refEmailStyle = refInputEmail.current.style;
         const refPhoneNumberStyle = refInputPhone.current.style;
-        //  NAME
-                // Button Validation
+        // Button Validation
         if(inputName.length > 2){
             setButtonDisabled(false)
         } else {
             setButtonDisabled(true)
         }
 
+        //  NAME
         if(validName.test(inputName)){
             setFormErrors(prevFormErrors => ({...prevFormErrors, name: ""}))
             refNameStyle.border = '3px solid var(--c-main)'
@@ -219,7 +219,7 @@ const UserData = ({onNameChange, onSurnameChange, onDateChange, onGenderChange, 
         }
         // console.log("infinity loop detector")
         fetchAvatar()
-    }, []);
+    });
     
     // fetch country
     const url = 'https://restcountries.com/v3.1/all';

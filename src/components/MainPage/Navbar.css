@@ -21,9 +21,9 @@ header {
     border-right: none;
     border-top: none;
     border-bottom: none;
-    -webkit-box-shadow: -13px 0px 31px -23px rgba(39, 121, 167, 1);
-    -moz-box-shadow: -13px 0px 31px -23px rgba(39, 121, 167, 1);
-    box-shadow: -13px 0px 31px -23px rgba(39, 121, 167, 1);
+    -webkit-box-shadow: -13px 0px 31px -23px var(--c-shadow-main);
+    -moz-box-shadow: -13px 0px 31px -23px var(--c-shadow-main);
+    box-shadow: -13px 0px 31px -23px var(--c-shadow-main);
     transition: all ease-in-out;
     /* transition-delay: 600ms; */
 }
