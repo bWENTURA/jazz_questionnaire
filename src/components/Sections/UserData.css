@@ -79,9 +79,14 @@
     align-items: center;
     justify-content: center;
     color: var(--c-dark);
+    background-color: var(--c-secondary);
+    box-shadow: 0px 7px 10px 0px rgba(0, 0, 0, 0.31);
+    margin: 0px 0px 15px;
+    padding: 10px 10px 10px;
 }
 
 .form-instruction__task {
+    margin-top: 0px;
     margin-bottom: 0px;
     text-align: center;
 }
@@ -90,6 +95,7 @@
     font-size: 12px;
     font-style: italic;
     margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 /* 

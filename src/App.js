@@ -31,6 +31,8 @@ const App = () => {
   // hooks for Music Quiz
   const [checkValue, setCheckValue] = useState(songsData)
   const [audioQuizScore, setAudioQuizScore] = useState('');
+  // checkbox validation
+  
   // LIGHT / DARK MODE
   const [isLightMode, setIsLightMode] = useState(true);
 
@@ -131,7 +133,7 @@ const App = () => {
   // }, [quizScore]);
 
   // setCheckValue returns new object, with changed (if checkbox.title === checkboxTitle)
-  // value of chacked on true and rest of keys with no changes(spread operator);
+  // value of checked on true and rest of keys with no changes(spread operator);
   //  else, return not-changed object;
   
   /*

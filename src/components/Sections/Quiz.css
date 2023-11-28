@@ -28,6 +28,17 @@
     grid-area: 1 / 1 / 2 / 5;
     text-align: center;
     font-size: 1.17rem;
+    color: var(--c-dark);
+    background-color: var(--c-secondary);
+    box-shadow: 0px 7px 10px 0px rgba(0, 0, 0, 0.31);
+    margin: 0px 0px 20px;
+    padding: 10px 10px 0px;
+}
+
+.quiz-task__instruction {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
 }
 
 .question {
@@ -110,5 +121,9 @@ ul {
 
     .button-container__quiz button:hover {
         width: 290px;
+    }
+
+    .quiz-task {
+        padding: 10px 10px 20px;
     }
 }

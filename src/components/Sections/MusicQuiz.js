@@ -112,8 +112,8 @@ const MusicQuiz = ({onCheckHandler, onSumHandler, onSongData, userName}) => {
                             <MdExpandLess className="expand-more-button-component"/>
                         </button>
                     </div>
-                    <div className="quiz-task">
-                                <p className="quiz-task__instruction">Now is the time for the last stage of my quiz!<br></br>Task:<br></br> - Use music player to listen to 6 different examples of songs. <br></br>Choose only 3 of them which - in your opinion - are represented for jazz music.<br></br>{userName}, let's do it!</p>
+                    <div className="musicquiz-task">
+                                <p className="musicquiz-task__instruction">Now is the time for the last stage of my quiz!<br></br>Task:<br></br>Use music player to listen to 6 different examples of songs. <br></br>Choose only 3 of them which - in your opinion - are represented for jazz music.<br></br>{userName}, let's do it!</p>
                             </div>
                     <div className="music-quiz">
                         <audio 
@@ -149,7 +149,7 @@ const MusicQuiz = ({onCheckHandler, onSumHandler, onSongData, userName}) => {
                         </div>
                     </div>
                     <div onClick={onSumHandler} className="button-container__player">
-                        <button>Enter My Answears!</button>
+                        <button>Enter My Answers!</button>
                     </div>
                 </section>}
         </Fragment>

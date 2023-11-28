@@ -2,8 +2,21 @@
     width: auto;
 }
 
-.quiz-task {
-    padding-inline: 5px;
+.musicquiz-task {
+    text-align: center;
+    font-size: 1.17rem;
+    color: var(--c-dark);
+    background-color: var(--c-secondary);
+    box-shadow: 0px 7px 10px 0px rgba(0, 0, 0, 0.31);
+    margin: 0px 0px 20px;
+    padding: 10px 10px 20px;
+    
+}
+
+.musicquiz-task__instruction {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
 }
 
 .music-quiz-container-title {
