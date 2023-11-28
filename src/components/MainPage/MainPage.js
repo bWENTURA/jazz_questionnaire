@@ -9,7 +9,7 @@ import GithubIcon from "../../assets/icons/git-hub-icon.png"
 const MainPage = ({onModeHandler}) => {
 
     const [show, setShow] = useState(false);
-    const [mode, setMode] = useState(true);
+    const [mode, setMode] = useState(false);
     const [isPopupVisible, setPopupVisible] = useState(false)
 
     // manipulating of section's display

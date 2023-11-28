@@ -48,9 +48,9 @@
     margin: 0 1rem;
     cursor: pointer;
 }
-.controls-btn__action:hover{
+/* .controls-btn__action:hover{
     color: white;
-}
+} */
 
 .controls-btn__action .pp {
     font-size: 4rem;

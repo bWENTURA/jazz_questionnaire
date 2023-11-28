@@ -35,7 +35,7 @@ const App = () => {
   const [checkedSum, setCheckedSum] = useState(0);
   const [disabledMusiqQuizButton, setDisabledMusiqQuizButton] = useState(true);
   // LIGHT / DARK MODE
-  const [isLightMode, setIsLightMode] = useState(true);
+  const [isLightMode, setIsLightMode] = useState(false);
 
   /*
       USER DATA
