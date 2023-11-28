@@ -9,9 +9,9 @@
 \*-----------------------------------*/
 
 /* DEFAULT COLORS */
-:root {
+/* :root {
   --c-main: #2779a7;
-  --c-shadow-main: rgba(39, 121, 167, 1);
+  --c-shadow-main: #2779a7;
   --c-secondary: #008a66;
   --c-secondary__shadow: #008a657a;
   --c-dark: #333;
@@ -20,6 +20,19 @@
   --c-background-task: #008a66;
   --c-background-dark: #f7d7b5;
   --c-background-input: rgba(253, 253, 253, 0.685);
+} */
+
+:root {
+  --c-main: #283618;
+  --c-shadow-main: #283618;
+  --c-secondary: #BC6C25;
+  --c-secondary__shadow: #96561e;
+  --c-dark: #333;
+  --c-white: #f8f4e9;
+  --c-background: #FEFAF0;
+  --c-background-task: #BC6C25;
+  --c-background-dark: #FEFAF0;
+  --c-background-input: #FEFAF0;
 }
 
 /* FONTS */

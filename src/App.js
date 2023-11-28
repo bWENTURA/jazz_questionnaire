@@ -199,15 +199,15 @@ const App = () => {
   useEffect(() => {
     const root = document.documentElement;
     if (isLightMode) {
-      root.style.setProperty('--c-main', '#2779a7');
-      root.style.setProperty('--c-secondary', '#008a66');
-      root.style.setProperty('--c-secondary__shadow', '#008a657a');
+      root.style.setProperty('--c-main', '#283618');
+      root.style.setProperty('--c-secondary', '#BC6C25');
+      root.style.setProperty('--c-secondary__shadow', '#96561e');
       root.style.setProperty('--c-dark', '#333');
       root.style.setProperty('--c-white', '#f8f4e9');
-      root.style.setProperty('--c-background', '#efe2ba');
-      root.style.setProperty('--c-background-task', '#008a66')
-      root.style.setProperty('--c-background-dark', '#f7d7b5');
-      root.style.setProperty('--c-background-input', 'rgba(253, 253, 253, 0.685)');
+      root.style.setProperty('--c-background', '#FEFAF0');
+      root.style.setProperty('--c-background-task', '#BC6C25')
+      root.style.setProperty('--c-background-dark', '#FEFAF0');
+      root.style.setProperty('--c-background-input', '#FEFAF0');
     } else {
       root.style.setProperty('--c-main', '#f8f4e9');
       root.style.setProperty('--c-secondary', '#f8f4e9');
