@@ -14,12 +14,12 @@ const Result = ({name, surname, date, gender, email, phone, country, job, questi
   const [displayJob, setDisplayJob] = useState(job);
   const [displayCountry, setDisplayCountry] = useState(country);
   const [displayScore, setDisplayScore] = useState(0);
-  //  RECORD SCORES
-  const [result, setResult] = useState([]);
+  //  RECORD SCORES - TODO in future
+  // const [result, setResult] = useState([]);
   
   /* 
       changin visibility of section by click event
-   */
+  */
 
   const onClickHandler = (e) => {
     e.preventDefault();
@@ -36,7 +36,6 @@ const Result = ({name, surname, date, gender, email, phone, country, job, questi
     setTimeout(() => {
       window.scrollTo(0, document.body.scrollHeight)
     }, 300)
-
   };
 
   const refreshPage = () => {
@@ -66,15 +65,15 @@ const Result = ({name, surname, date, gender, email, phone, country, job, questi
                 <h2>Result</h2>
             </div>
             <div className="data-container">
-              <p className="data-name">Name: <span>{displayName}</span></p>
-              <p className="data-surname">Surname: <span>{displaySurname}</span></p>
-              <p className="data-date">Birth Date: <span>{displayDate}</span></p>
-              <p className="data-gender">Gender: <span>{displayGender}</span></p>
-              <p className="data-email">Email: <span>{displayEmail}</span></p>
-              <p className="data-phone">Phone Number: <span>{displayPhone}</span></p>
-              <p className="data-country">Country: <span>{displayCountry}</span></p>
-              <p className="data-job">Job: <span>{displayJob}</span></p>
-              <p className="data-result">Score: <span>{displayScore}%</span></p>
+              {name === '' ? '' : <p className="data-name">Name: <span>{displayName}</span></p>}
+              {surname === '' ? '' : <p className="data-surname">Surname: <span>{displaySurname}</span></p>}
+              {date === '' ? '' : <p className="data-date">Birth Date: <span>{displayDate}</span></p>}
+              {gender === '' ? '' : <p className="data-gender">Gender: <span>{displayGender}</span></p>}
+              {email === '' ? '' : <p className="data-email">Email: <span>{displayEmail}</span></p>}
+              {phone === '' ? '' : <p className="data-phone">Phone Number: <span>{displayPhone}</span></p>}
+              {country === '' ? '' : <p className="data-country">Country: <span>{displayCountry}</span></p>}
+              {job === '' ? '' : <p className="data-job">Job: <span>{displayJob}</span></p>}
+              <p className="data-result">Your Score: <span>{displayScore}%</span></p>
             </div>
             <div className="button-container__result">
               <button className="data-button" type="submit" onClick={refreshPage}>Try again!</button>
