@@ -1,7 +1,7 @@
 import {React, Fragment, useState} from "react";
 import './Result.css';
 
-const Result = ({name, surname, date, gender, email, phone, country, job, questionQuizScore, audioQuizScore}) => {
+const Result = ({name, surname, date, gender, email, phone, country, job, questionQuizScore, audioQuizScore, showTask}) => {
 
   //  DISPLAY USESTATE
   const [expand, setExpand] = useState(true);
@@ -41,10 +41,8 @@ const Result = ({name, surname, date, gender, email, phone, country, job, questi
   const refreshPage = () => {
     window.scrollTo(0,0)
     setTimeout(() => {
-      window.location.reload();
-
-    }, 200)
-    // probably to refactoring - bad behaviour of reload(); after reload not positioned on the top
+      window.location.reload(true);
+    }, 760)
     
   }
 
@@ -56,6 +54,7 @@ const Result = ({name, surname, date, gender, email, phone, country, job, questi
                 <h2>Result</h2>
             </div>
             <div className="button-container__result">
+              {showTask ? '' : <p>{name}, if you have passed all three stages, click button below!</p>}
               <button type="submit" onClick={onClickHandler}>Show Result</button> 
             </div>
           </section>

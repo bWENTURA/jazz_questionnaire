@@ -48,12 +48,19 @@
 }
 
 .button-container__result {
-    display: flex;
-    justify-content: center;
     padding: 10px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.button-container__result p {
+    color: var(--c-dark);
+    text-align: center;
 }
 
 .button-container__result button {
+    margin: auto;
     padding: 5px;
     color: var(--c-white);
     background-color: var(--c-main);

@@ -7,7 +7,7 @@ import Quiz from './components/Sections/Quiz';
 import Result from './components/Sections/Result';
 import MusicQuiz from './components/Sections/MusicQuiz';
 import questions from './data/questions.json';
-import songsData from './data/songsData.json'
+import songsData from './data/songsData.json';
 
 const App = () => {
   // below hooks for UserData component
@@ -36,6 +36,7 @@ const App = () => {
   const [disabledMusiqQuizButton, setDisabledMusiqQuizButton] = useState(true);
   // LIGHT / DARK MODE
   const [isLightMode, setIsLightMode] = useState(false);
+  const [showTask, setShowTask] = useState(true);
 
   /*
       USER DATA
@@ -173,6 +174,10 @@ const App = () => {
               sum += checkbox.value;
           }
       });
+      setShowTask(false);
+      setTimeout(() => {
+        window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
+      }, 200)
       return setAudioQuizScore(sum);
   };
 
@@ -260,6 +265,7 @@ const App = () => {
         job={selectedJob}
         questionQuizScore={quizScore}
         audioQuizScore={audioQuizScore}
+        showTask={showTask}
         />
     </div>    
     </Fragment>

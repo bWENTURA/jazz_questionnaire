@@ -1,6 +1,6 @@
-import {Fragment, React} from "react";
+import { React } from "react";
 import { Link } from 'react-scroll';
-import {FaTimes} from 'react-icons/fa';
+import { FaTimes } from 'react-icons/fa';
 import './Navbar.css';
 
 const Navbar = ({onClose, modeHandler, mode, darkMode, lightMode, isPopupVisible, onEnter, onLeave}) => {
