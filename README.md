@@ -2,13 +2,14 @@
 
 ## Description
 
-This questionnaire is my original project in React.js. I wrote the code from scratch. I was responsible for:
-- conception of project
-- whole layout and style of page
-- meritorical content
-- programming content
+The idea of application is to measure the probability that the person who complete the quiz could be a jazzman.  
+This is my first personal project with use of React.js:
+- concept of project
+- layout and style of page
+- logic of application
+- code
 
- *Jazz Questionnaire* is concentrated on React's main concepts like **Hooks, Forms, Components(and comunication between them), Props, JSX and others.**
+ *Jazz Questionnaire* is focused on React's main concepts like **Hooks, Forms, Components(and comunication between them), Props, JSX and others.**
 
 Technologies I used in project:
 - HTML
@@ -20,7 +21,7 @@ Technologies I used in project:
 
 ## Requirements
 
-To run this webpage I reccomand using:
+To run this webpage I recommend using:
 - VS Code
 
 ## How to run project
