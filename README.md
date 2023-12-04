@@ -3,7 +3,7 @@
 ## Description
 
 The idea of application is to measure the probability that the person who complete the quiz could be a jazzman.  
-This is my first personal project with use of React.js:
+This is my first personal project with use of React.js. I was responsible for all parts of application, including:
 - concept of project
 - layout and style of page
 - logic of application
